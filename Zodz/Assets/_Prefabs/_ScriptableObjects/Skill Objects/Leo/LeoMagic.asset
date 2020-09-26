@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a074ccfd8ab94042ace0f861fbab86c, type: 3}
+  m_Name: LeoMagic
+  m_EditorClassIdentifier: 
+  skillName: Roar
+  skillShortDescription: Stun enemies around you.
+  skillLongDescription: Stuns all enemies all around you within a certain distance.
+  skillIcon: {fileID: -7375111821088696052, guid: 3e38b95586dc5384c8ecef2571075a75,
+    type: 3}
+  skillCost: 50
+  cooldown: 0
+  damageInformation: {fileID: 6851248106845737379, guid: 3eff36442b3ae0144b820ae3484fcef2,
+    type: 3}
+  range: 4
+  globalEntitySet: {fileID: 11400000, guid: 053c4177884f94f4bba746bd42e2edcb, type: 2}
+  castingAnimSet: {fileID: 11400000, guid: e49045094140f10468824515d5dd0a45, type: 2}
+  victimsKnockback: 10
+  invertKnockback: 0

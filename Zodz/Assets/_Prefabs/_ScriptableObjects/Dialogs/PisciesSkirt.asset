@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d098d08697f42445a4f6be11e12ee67, type: 3}
+  m_Name: PisciesSkirt
+  m_EditorClassIdentifier: 
+  possibleDialogs:
+  - targetRaces:
+    - {fileID: 11400000, guid: ca486f4043b76c24c95c23d41947683d, type: 2}
+    lines:
+    - bubbleText: Very pleasant city...
+      isFromActor: 0
+      targetMemberIndex: 0
+      timeToReadLine: 3
+    - bubbleText: ...with some unpleasant folk.
+      isFromActor: 0
+      targetMemberIndex: 0
+      timeToReadLine: 3
+  - targetRaces:
+    - {fileID: 11400000, guid: 28ec612fb13bf0d44a756836a6270632, type: 2}
+    lines:
+    - bubbleText: Nice skirt.
+      isFromActor: 0
+      targetMemberIndex: 0
+      timeToReadLine: 2.42
+    - bubbleText: How masculine.
+      isFromActor: 0
+      targetMemberIndex: 0
+      timeToReadLine: 2.42

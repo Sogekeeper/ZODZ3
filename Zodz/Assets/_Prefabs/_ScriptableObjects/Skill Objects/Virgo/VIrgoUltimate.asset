@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a82bd31c713b4443807cd66dcd8b5ac, type: 3}
+  m_Name: VIrgoUltimate
+  m_EditorClassIdentifier: 
+  skillName: Meditation
+  skillShortDescription: Stop moving to heal over time.
+  skillLongDescription: Retract into a sphere and stay put to heal for over time
+    for 3s.
+  skillIcon: {fileID: 2360168997421770800, guid: fcda92712f5b36c41884be011823e8f3,
+    type: 3}
+  skillCost: 60
+  cooldown: 30
+  mindMultiplier: 2
+  healingTime: 3
+  activateAnim: {fileID: 11400000, guid: b8db9751283127340aaa322e3c17f42d, type: 2}
+  healingAnim: {fileID: 11400000, guid: cf99761fad2a9a947bee18478e45ad10, type: 2}
+  stopAnim: {fileID: 11400000, guid: e6c6f505abf5dc247ad8130d1f5e08e6, type: 2}

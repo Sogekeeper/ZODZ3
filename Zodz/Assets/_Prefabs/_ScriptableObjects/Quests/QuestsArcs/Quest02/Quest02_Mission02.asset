@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2577ee872d105d54aaca738b7f3cfbf1, type: 3}
+  m_Name: Quest02_Mission02
+  m_EditorClassIdentifier: 
+  parentQuestArc: {fileID: 11400000, guid: 7bc9c00c152e6544097dcb1954d57d26, type: 2}
+  isActive: 1
+  outcomes:
+  - completed: 0
+    nextMission: {fileID: 11400000, guid: 26cf0880daa8ddf4fbef0facfc772fbb, type: 2}
+    goals:
+    - shortDescription: Destroy the Eldrich Eyes
+      completed: 0
+      goalCounter: {fileID: 11400000, guid: 20f13cfd4d4849e4f92b57045873bf7b, type: 2}
+      showCounter: 1
+  - completed: 0
+    nextMission: {fileID: 0}
+    goals:
+    - shortDescription: Run
+      completed: 0
+      goalCounter: {fileID: 0}
+      showCounter: 0
+  forcedRoom: {fileID: 0}
+  desiredRoomQueuePosition: 0

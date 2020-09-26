@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfe4aa58d153d74fade0e7550be7d4f, type: 3}
+  m_Name: Virgo1
+  m_EditorClassIdentifier: 
+  skillName: Feeling Drop
+  skillShortDescription: Fires spheres that deal damage.
+  skillLongDescription: Fires a projectile that travels a short distance before disappearing.
+  skillIcon: {fileID: -1417643110583915455, guid: fcda92712f5b36c41884be011823e8f3,
+    type: 3}
+  skillCost: 0
+  cooldown: 0
+  baseProjectile: {fileID: 2401772608745509811, guid: f7e4d18f249f74e41b84928f167742dd,
+    type: 3}
+  castingAnimSet: {fileID: 11400000, guid: 46b29273fbd9b5b4498bfadba157fba7, type: 2}
+  numberOfProjectiles: 1
+  castingKnockback: 20
+  forwardCastingKnockback: 0
+  spawnDistanceMultiplier: 1
+  ultimateProjectile: {fileID: 0}
+  updateAimDuringVolley: 0
+  rotateBasicProjectile: 1
+  rotateUltimateProjectile: 1
+  soundOnCastEach: {fileID: 8300000, guid: 0e134b0deac817f4fa2c3909983d41ec, type: 3}

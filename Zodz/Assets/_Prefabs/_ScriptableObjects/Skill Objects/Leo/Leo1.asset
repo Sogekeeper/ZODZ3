@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71750d33f60276c458f1b575b75cc852, type: 3}
+  m_Name: Leo1
+  m_EditorClassIdentifier: 
+  skillName: Bloody Claws
+  skillShortDescription: Slashes 3 times. Last slash applies Bleeding.
+  skillLongDescription: Attacks 3 times in front of him. The last strike will apply
+    Bleeding. Bleeding deals damage over time equal to a percentage of the enemies
+    total health.
+  skillIcon: {fileID: 815103288598077471, guid: 3e38b95586dc5384c8ecef2571075a75,
+    type: 3}
+  skillCost: 0
+  cooldown: 0
+  timeToUseNextSkill: 1
+  skillsToUse:
+  - {fileID: 11400000, guid: a24ccf8f3bd0220419c6017eaea669e4, type: 2}
+  - {fileID: 11400000, guid: 4af24f07782935243b660bbb3375de20, type: 2}
+  - {fileID: 11400000, guid: 548ddc005bedbc94a992b24a0e4861a6, type: 2}
