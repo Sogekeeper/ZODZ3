@@ -8,9 +8,12 @@ public class MapRoomGenerator : MonoBehaviour
     public MapSettings globalMapSettings;
     [HideInInspector]public GameObject roomParent;
     public PlayerStats playerObject;
+    public PoolContainer pooler;
     public AstarPath path;
     [Header("Optional")]
     public GameObject loadingScreen;
+
+    [HideInInspector]public Reward currentReward;
 
     private int currentRoomIndex = 0;
     private MapDecoration currentDeco;
@@ -44,7 +47,8 @@ public class MapRoomGenerator : MonoBehaviour
         //configurando portas
         for(int i = 0; i < decoration.doors.Length;i++){
             decoration.doors[i].SetLocked(true);
-            decoration.doors[i].generator = this;
+            decoration.doors[i].SetupDoor(this,null);
+            //setar recompensas
         }
 
         //spawn de inimigos
@@ -74,12 +78,16 @@ public class MapRoomGenerator : MonoBehaviour
 
     public void RoomCleared(){
         //spawnar recompensa e abrir portas
+        if(currentReward){
+            
+        }
         for(int i = 0; i < currentDeco.doors.Length;i++){
             currentDeco.doors[i].SetLocked(false);
         }
     }
 
-    public void AdvanceRoom(){ //para EnemyCounter chamar
+    public void AdvanceRoom(Reward nextReward){ //para EnemyCounter chamar
+        currentReward = nextReward;
         if(currentRoomIndex >= globalMapSettings.numberOfRooms){
             SceneManager.LoadScene(globalMapSettings.destinationScene.Value);
         }else{

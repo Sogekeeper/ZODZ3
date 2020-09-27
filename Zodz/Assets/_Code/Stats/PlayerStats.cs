@@ -146,8 +146,8 @@ public class PlayerStats : EntityStats
         }
         if(!added) return false;
 
-        if(AddToFilteredMap(targetRace)){
-            if(targetRace.raceUpgrade) ApplyState(targetRace.raceUpgrade);
+        if(!AddToFilteredMap(targetRace)){
+            //upgrade here
         }
         
         OnSkillSwaped?.Invoke();
