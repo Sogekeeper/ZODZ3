@@ -732,7 +732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 014107972f68e7846b4a9c3e8c91afce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8a574ddb4ca2804e9bbf96e262f6264, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -749,26 +749,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6127592242861431266}
     m_Modifications:
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000020980835
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -8.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -8.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8760469718402851410, guid: ee81b404ec7caef4fb57ff5261b68140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -879,11 +859,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeButton
       objectReference: {fileID: 0}
-    - target: {fileID: 8760469718402851422, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: upgradeInterface
-      value: 
-      objectReference: {fileID: 6127592242470161186}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee81b404ec7caef4fb57ff5261b68140, type: 3}
 --- !u!224 &6127592242417847478 stripped
@@ -1102,17 +1077,22 @@ PrefabInstance:
     - target: {fileID: 7164100753946872599, guid: d6cf54a9cf5d10d43bea8a34d1ba984c,
         type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: 7164100753946872599, guid: d6cf54a9cf5d10d43bea8a34d1ba984c,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 18
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: 7164100753946872599, guid: d6cf54a9cf5d10d43bea8a34d1ba984c,
         type: 3}
       propertyPath: m_margin.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164100753946872599, guid: d6cf54a9cf5d10d43bea8a34d1ba984c,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6cf54a9cf5d10d43bea8a34d1ba984c, type: 3}
@@ -1129,32 +1109,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6127592242861431266}
     m_Modifications:
-    - target: {fileID: 7392569998642475983, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3476182107386569348, guid: e16b1c2f3a04fab4bb5f49c5c551b470,
-        type: 3}
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000020980835
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -8.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710238554387804226, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -8.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8760469718402851410, guid: ee81b404ec7caef4fb57ff5261b68140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1260,37 +1214,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8760469718402851410, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8760469718402851410, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8760469718402851410, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8760469718402851411, guid: ee81b404ec7caef4fb57ff5261b68140,
         type: 3}
       propertyPath: m_Name
       value: UpgradeButton (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8760469718402851422, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: upgradeInterface
-      value: 
-      objectReference: {fileID: 6127592242470161186}
-    - target: {fileID: 8760469718402851422, guid: ee81b404ec7caef4fb57ff5261b68140,
-        type: 3}
-      propertyPath: targetUpgrade
-      value: 
-      objectReference: {fileID: 11400000, guid: cbf919fc44f57a847b9ea7bd54d589f8,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee81b404ec7caef4fb57ff5261b68140, type: 3}
 --- !u!224 &3214132413154591339 stripped
