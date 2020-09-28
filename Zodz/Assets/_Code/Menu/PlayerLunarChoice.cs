@@ -7,10 +7,10 @@ public class PlayerLunarChoice : MonoBehaviour
 	public static Race playerLunarChoice;
 	public PlayerCharacterSettings playerCharacterSettings;
 
-	public void ChooseMoonSign(Race lunarSign)
+	public void ChooseMoonSign(UpdateLunarInfo lunarSign)
 	{
 
-		playerLunarChoice = lunarSign;				
+		playerLunarChoice = lunarSign.raceToGetLunarInfo;				
 		playerCharacterSettings.lunarRace = playerLunarChoice;
 		
 	}

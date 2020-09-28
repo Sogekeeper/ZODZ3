@@ -7,9 +7,9 @@ public class PlayerRisignChoice : MonoBehaviour
 	public static Race playerRisignChoice;
 	public PlayerCharacterSettings playerCharacterSettings;
 
-	public void ChooseRisingSign(Race risingSign)
+	public void ChooseRisingSign(UpdateRisingInfo risingSign)
 	{
-		playerRisignChoice = risingSign;
+		playerRisignChoice = risingSign.raceToGetRisingInfo;
 		playerCharacterSettings.ascendantRace = playerRisignChoice;
 	}
 }

@@ -23,7 +23,7 @@ public class UpdateRisingInfo : MonoBehaviour
 	public TextMeshProUGUI weakElement;
 	public Image weakIcon;
 
-	private void OnEnable()
+	private void Start()
 	{
 		if (alreadyChoosed)
 		{
