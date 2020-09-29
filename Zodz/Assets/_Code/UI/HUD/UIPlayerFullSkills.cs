@@ -17,7 +17,6 @@ public class UIPlayerFullSkills : MonoBehaviour
         UpdateSelectedSkill();
         selectedIndicator.gameObject.SetActive(false);
         selectedIndicator.anchoredPosition = new Vector2(-9999, -9999);
-        selectedIndicator.gameObject.SetActive(true);
         selectedIndicator.ForceUpdateRectTransforms();
         Invoke("UpdateSelectedSkill",0.1f);
     }
@@ -36,6 +35,7 @@ public class UIPlayerFullSkills : MonoBehaviour
         }
     }
     public void UpdateSelectedSkill(){
+        selectedIndicator.gameObject.SetActive(true);
         for(int i = 0; i < magicSkills.Length; i++){
             if(magicSkills[i].currentSkill && magicSkills[i].currentSkill == player.selectedMagicSkill){
                 magicSkills[i].ToggleSelection(true);
