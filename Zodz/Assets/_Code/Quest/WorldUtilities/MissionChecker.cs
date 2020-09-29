@@ -9,13 +9,15 @@ public class MissionChecker : MonoBehaviour
     public bool checkForActive;
     public bool checkForCompleted;
     public UnityEvent OnValidResult;
+    public UnityEvent OnInvalidResult;
 
     public void CheckMission(){
         if(checkForActive && missionToCheck.isActive){
-            OnValidResult?.Invoke();
+            OnValidResult?.Invoke(); return;
         }else if(checkForCompleted && missionToCheck.GetCompletedOutcome() != null){
-            OnValidResult?.Invoke();
+            OnValidResult?.Invoke(); return;
         }
+        OnInvalidResult?.Invoke();
 
     }
 }

@@ -70,13 +70,16 @@ public class Mission : ScriptableObject
     public void CompleteOutcome(int outcomeIndex){// para completar outcome manualmente
         if(GetCompletedOutcome() != null || !isActive) return; //evita escolher outro outcome depois que um ja escolhido
         outcomes[outcomeIndex].completed = true;
-        isActive = false;
+        for(int i = 0; i < outcomes[outcomeIndex].goals.Length;i++){
+            outcomes[outcomeIndex].goals[i].completed = true;
+        }
         // atualizar quest arc
         if(outcomes[outcomeIndex].nextMission != null){
             parentQuestArc.NextMission(outcomes[outcomeIndex].nextMission);
         }else{
             parentQuestArc.CompleteQuest();
         }
+        isActive = false;
         parentQuestArc.questUpdateEvent.Raise();
     }
 }

@@ -47,7 +47,9 @@ public class QuestArc : ScriptableObject
         questUpdateEvent.Raise();    
     }
 
-    public void Reward(){
+    public void Reward(PoolContainer pooler, Vector3 spawnPosition){
+        PoolObject po = pooler.SpawnTargetObject(reward.thisPoolObject,2);
+        po.transform.position = spawnPosition;
         rewarded = true;
         questUpdateEvent.Raise();
     }

@@ -1320,7 +1320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -22.400024}
+  m_AnchoredPosition: {x: 0, y: -22.399963}
   m_SizeDelta: {x: 0, y: -44.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4626816229334074778
@@ -1335,6 +1335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82ad4c4137571d488e5b8307ea7ba70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolerForRewards: {fileID: 0}
+  player: {fileID: 0}
   questDescription: {fileID: 4626816228709191817}
   menu: {fileID: 4626816229356681773}
   categories:
@@ -1661,7 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec847cf0285fbe941bfd2d32fa07d5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questsToDisplay: {fileID: 11400000, guid: af6be82b95361cc419088a8f39a60c91, type: 2}
+  questsToDisplay: {fileID: 11400000, guid: d484f74548e694f408abacdae308ce7d, type: 2}
   displayActive: 1
   displayCompleted: 0
   questMenu: {fileID: 4626816229334074778}
@@ -2099,7 +2101,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4626816230196019324}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4626816229334074778}
+        m_MethodName: CompleteQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1807130299347705121
 PrefabInstance:
   m_ObjectHideFlags: 0
