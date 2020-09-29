@@ -43,7 +43,7 @@ public class Mission : ScriptableObject
 
     public Outcome[] outcomes;
 
-    public Outcome GetCompletedOutcome(){
+    public Outcome GetCompletedOutcome(){ //returns null if not completed
         for(int i = 0; i < outcomes.Length; i++){
             if(outcomes[i].completed){
                 return outcomes[i];
