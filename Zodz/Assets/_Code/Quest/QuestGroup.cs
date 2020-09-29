@@ -6,5 +6,5 @@ using UnityEngine;
 public class QuestGroup : ScriptableObject
 {
     public string groupName = "Main Quests";
-    public List<QuestArc> quests;
+    public List<QuestArc> quests = new List<QuestArc>();
 }

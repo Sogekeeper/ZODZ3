@@ -6,6 +6,7 @@ public class MapDoor : MonoBehaviour
 {
     public GameObject doorImageObject; //PLACEHOLDER
     public Collider2D interactableTrigger;
+    public SpriteRenderer doorIcon;
     [HideInInspector]public MapRoomGenerator generator;
     [HideInInspector]public Reward currentReward;
 
@@ -14,6 +15,9 @@ public class MapDoor : MonoBehaviour
     public void SetupDoor(MapRoomGenerator targetGenerator, Reward targetReward){
         currentReward = targetReward;
         generator = targetGenerator;
+        if(doorIcon && targetReward && targetReward.rewardDoorImage){
+            doorIcon.sprite = targetReward.rewardDoorImage;
+        }
         //colocar sprite na porta
     }
 

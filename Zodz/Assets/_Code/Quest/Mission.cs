@@ -15,6 +15,10 @@ public class Mission : ScriptableObject
         public bool completed;
         public MissionCounter goalCounter;
         public bool showCounter;
+        [Header("Force Map Gen")]
+        public MapRoom forcedRoom; 
+        public Location locationRequirement1;
+        public Location locationRequirement2; //para especificar caminhos use 2 locais, um pra cada ponta
     }
     [System.Serializable]
     public class Outcome{//resultados possíveis, pode ter mais de um goal
@@ -38,10 +42,6 @@ public class Mission : ScriptableObject
     }
 
     public Outcome[] outcomes;
-
-    [Header("Force Map Gen")]
-    public GameObject forcedRoom; 
-    [Min(0)]public int desiredRoomQueuePosition = 0;
 
     public Outcome GetCompletedOutcome(){
         for(int i = 0; i < outcomes.Length; i++){

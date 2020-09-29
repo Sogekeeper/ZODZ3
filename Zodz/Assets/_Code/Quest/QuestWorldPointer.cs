@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class QuestWorldPointer : MonoBehaviour
 {
+    //OLD - PARA MUDAR
+
     public QuestController controller;
     public SpriteRenderer visual;
 

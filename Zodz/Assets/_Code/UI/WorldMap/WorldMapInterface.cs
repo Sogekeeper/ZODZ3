@@ -68,6 +68,7 @@ public class WorldMapInterface : MonoBehaviour
         globalMapSettings.numberOfRooms = selectedPathway.distance;
         globalMapSettings.mapDifficulty = MapSettings.MapDifficulty.EASY;
         Time.timeScale = 1;
+        worldObject.SetPathway(selectedPathway);
         SceneManager.LoadScene(roomSceneString.Value);        
     }
 
@@ -106,6 +107,7 @@ public class WorldMapInterface : MonoBehaviour
             difficultyIndicator.LeanSize(new Vector2(diff*imageTileWidth,difficultyIndicator.rect.height),0.3f).setIgnoreTimeScale(true);
             distanceIndicator.LeanSize(new Vector2(dist*imageTileWidth,difficultyIndicator.rect.height),0.3f).setIgnoreTimeScale(true);
         }else if(worldObject.currentLocation == null){
+            //erro
             selectedLocation = null;
             pathwayInfoContent.SetActive(false);
             youreHereContent.SetActive(true);

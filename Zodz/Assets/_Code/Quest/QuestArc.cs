@@ -10,7 +10,7 @@ public class QuestArc : ScriptableObject
     public GameEvent questUpdateEvent;//para interface
     public bool completed = false;
     public bool rewarded = false;
-    public PoolObject reward;
+    public Reward reward;
     public List<Mission> missions = new List<Mission>();
 
     public bool initialized = false;
