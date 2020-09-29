@@ -8,8 +8,15 @@ public class UIPlayerCurrency : MonoBehaviour
     public PlayerCharacterSettings playerSettings;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI crystalText;
-    private int curCoins;
-    private int curCrystals;
+    private int curCoins =-1;
+    private int curCrystals =-1;
+    
+    private void Start() {
+        curCoins = playerSettings.coins;
+        coinText.SetText(curCoins.ToString());
+        curCrystals = playerSettings.crystals;
+        crystalText.SetText(curCrystals.ToString());
+    }
 
     private void Update() {
         if(playerSettings.coins != curCoins){
