@@ -3128,16 +3128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 77895179875984124, guid: c56a23e3579656342bde28423976b378,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.0400391
-      objectReference: {fileID: 0}
-    - target: {fileID: 241323106269603270, guid: c56a23e3579656342bde28423976b378,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -80.999985
-      objectReference: {fileID: 0}
     - target: {fileID: 693720498566855131, guid: c56a23e3579656342bde28423976b378,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3386,22 +3376,17 @@ PrefabInstance:
     - target: {fileID: 6025763815268998954, guid: c56a23e3579656342bde28423976b378,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.89
+      value: 22.86
       objectReference: {fileID: 0}
     - target: {fileID: 6025763815268998954, guid: c56a23e3579656342bde28423976b378,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -50.32
+      value: -50.141
       objectReference: {fileID: 0}
     - target: {fileID: 6486356157118211892, guid: c56a23e3579656342bde28423976b378,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6486356157118211892, guid: c56a23e3579656342bde28423976b378,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -44.40001
       objectReference: {fileID: 0}
     - target: {fileID: 7738502739372711339, guid: c56a23e3579656342bde28423976b378,
         type: 3}
@@ -11784,31 +11769,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 341900662}
     m_Modifications:
-    - target: {fileID: 3994602288233748123, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3994602288233748123, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3994602288233748123, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3994602288233748123, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3994602288233748123, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1168973264, guid: c704447a4f8730e4b992a998e7bab09c, type: 3}
+      propertyPath: OnTimerEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: f18d0b928cd70d749aee8ee092570fb9,
+        type: 2}
     - target: {fileID: 6481401720598475874, guid: c704447a4f8730e4b992a998e7bab09c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11871,30 +11836,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8462771940457454986, guid: c704447a4f8730e4b992a998e7bab09c,
         type: 3}
-      propertyPath: pastScene
-      value: 
-      objectReference: {fileID: 11400000, guid: 4aa05a567896a1742b8978d2cdff81f0,
-        type: 2}
-    - target: {fileID: 8462771940457454986, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: destinationScene
-      value: 
-      objectReference: {fileID: 11400000, guid: 28892b9b448ed1648988f87c768482cc,
-        type: 2}
-    - target: {fileID: 8462771940457454986, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: mapDestinationSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: f30991fc8955d4c4aaac671e8c08c8a9,
-        type: 2}
-    - target: {fileID: 8462771940457454986, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
-      propertyPath: targetScene
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f097ba0183bdde4c8530b325f01b492,
-        type: 2}
-    - target: {fileID: 8462771940457454986, guid: c704447a4f8730e4b992a998e7bab09c,
-        type: 3}
       propertyPath: mapInterface
       value: 
       objectReference: {fileID: 749273280}
@@ -11912,36 +11853,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1949349017}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1949349020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949349019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37dd221ad9f4ee548b172b0b55ee12d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  callOnStart: 1
-  isInstant: 1
-  secondsToWait: 0.5
-  OnTimerEnded:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7cad1b41d90923e4b8c5e9b4e1b4514c, type: 2}
-        m_MethodName: SetCurrentLocation
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f18d0b928cd70d749aee8ee092570fb9,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Location, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1950346598
 GameObject:
   m_ObjectHideFlags: 0
