@@ -182,7 +182,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6959169, y: -0.0022633672}
+  m_Offset: {x: 0.864722, y: 0.021020174}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -193,7 +193,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5852981, y: 0.97325325}
+  m_Size: {x: 0.9229083, y: 1.5087724}
   m_EdgeRadius: 0
 --- !u!50 &4230752102597584711
 Rigidbody2D:
@@ -228,13 +228,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5b6b49957df894cac3437c3ec9b436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTeam: {fileID: 0}
+  hostileTo: []
   damageValue: 0
   knockbackForce: 15
   statesToApply:
   - {fileID: 11400000, guid: 66f0935b3bcbcc443b2fbc161de3222d, type: 2}
   owner: {fileID: 0}
   manaReplenishAmount: 10
+  skillType: 0
+  damageType: 0
   OnHitEntity:
     m_PersistentCalls:
       m_Calls:

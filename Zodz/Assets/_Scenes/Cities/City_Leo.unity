@@ -15924,6 +15924,8 @@ GameObject:
   - component: {fileID: 1301463371}
   - component: {fileID: 1301463374}
   - component: {fileID: 1301463373}
+  - component: {fileID: 1301463376}
+  - component: {fileID: 1301463375}
   m_Layer: 10
   m_Name: LostToy
   m_TagString: Untagged
@@ -15963,7 +15965,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -16039,7 +16041,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -16101,6 +16103,67 @@ MonoBehaviour:
   showPopUpOnlyOnce: 1
   canInteract: 1
   actor: {fileID: 0}
+--- !u!114 &1301463375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301463369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0252fd0700afd2429a002e0ec983320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionToCheck: {fileID: 11400000, guid: ac9d741295182ea4582edc0eb416b03e, type: 2}
+  checkForActive: 1
+  checkForCompleted: 0
+  OnValidResult:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInvalidResult:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1301463369}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1301463376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301463369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dd221ad9f4ee548b172b0b55ee12d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callOnStart: 1
+  isInstant: 1
+  secondsToWait: 0.3
+  OnTimerEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1301463375}
+        m_MethodName: CheckMission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1319686122
 GameObject:
   m_ObjectHideFlags: 0
@@ -23185,6 +23248,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
         type: 3}
+      propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
+        type: 3}
       propertyPath: bubblePool
       value: 
       objectReference: {fileID: 2051451061}
@@ -23203,6 +23271,36 @@ PrefabInstance:
       propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 38726001}
+    - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
+        type: 3}
+      propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
+        type: 3}
+      propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
+        type: 3}
+      propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
+        type: 3}
+      propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1301463369}
+    - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
+        type: 3}
+      propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 693906446776074692, guid: 66510f6922a0f0c4dac669faf63930d4,
+        type: 3}
+      propertyPath: OnDialogEnd.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 693906446776074693, guid: 66510f6922a0f0c4dac669faf63930d4,
         type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -23404,7 +23502,7 @@ PrefabInstance:
     - target: {fileID: 241323106269603270, guid: c56a23e3579656342bde28423976b378,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -81.000015
+      value: -81
       objectReference: {fileID: 0}
     - target: {fileID: 693720498566855131, guid: c56a23e3579656342bde28423976b378,
         type: 3}
@@ -23449,7 +23547,7 @@ PrefabInstance:
     - target: {fileID: 808789367312087861, guid: c56a23e3579656342bde28423976b378,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -152.20003
+      value: -152.20001
       objectReference: {fileID: 0}
     - target: {fileID: 1301346901553344067, guid: c56a23e3579656342bde28423976b378,
         type: 3}

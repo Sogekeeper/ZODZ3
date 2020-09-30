@@ -95,15 +95,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5b6b49957df894cac3437c3ec9b436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTeam: {fileID: 0}
-  damageValue: 10
+  hostileTo: []
+  damageValue: 4
   knockbackForce: 4
   statesToApply: []
   owner: {fileID: 0}
   manaReplenishAmount: 10
+  skillType: 0
+  damageType: 0
   OnHitEntity:
     m_PersistentCalls:
       m_Calls: []
+  onHitShake: {fileID: 0}
+  onHitSound: {fileID: 0}
 --- !u!114 &2964343685517424548
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Hellmade.Sound;
 
 [RequireComponent(typeof(SkillUser))]
 public class PlayerStats : EntityStats
@@ -11,7 +12,6 @@ public class PlayerStats : EntityStats
     public Race lunarRace;
     public Race ascendantRace;
 
-    [System.Serializable]
     public class SkillCooldown{
         public Skill targetSkill;
         public float skillTimer;
@@ -27,7 +27,8 @@ public class PlayerStats : EntityStats
     public List<Race> astralMapFiltered{get;private set;} //mapa sem raças repetidas, para seleção de skills
     public Skill selectedMagicSkill{get; private set;}
     public int selectedSkillIndex{get;private set;}
-    
+
+    public AudioClip skillSwitchSound;
     public UnityEvent OnSkillSwaped;
 
     private SkillUser skillUser;
@@ -130,11 +131,15 @@ public class PlayerStats : EntityStats
     }
 
     public void SelectNextSkill(bool forward = true){
+        int lastIndex = selectedSkillIndex;
         if(forward){
             selectedSkillIndex = (selectedSkillIndex + 1) % astralMapFiltered.Count;
         }else{
             selectedSkillIndex--;
             if(selectedSkillIndex < 0) selectedSkillIndex = astralMapFiltered.Count - 1;
+        }
+        if(selectedSkillIndex != lastIndex && skillSwitchSound){
+            EazySoundManager.PlaySound(skillSwitchSound);
         }
         selectedMagicSkill = astralMapFiltered[selectedSkillIndex].magicSkill;
         OnSkillSwaped?.Invoke();
