@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class QuestObjectiveSetter : MonoBehaviour
 {
+    //OLD - PARA MUDAR
+
     public Quest targetQuestArc;
     public int questId;
     

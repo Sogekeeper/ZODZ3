@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerRaceChoice : MonoBehaviour
 {
 	public static Race playerRaceChoice;
+	
 
 	public void ChooseRace(Race nameRace)
 	{

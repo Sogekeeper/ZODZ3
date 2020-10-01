@@ -9,6 +9,7 @@ public class Race : ScriptableObject
 	public Sprite raceIcon;
 	public Element raceElement;
 	public string startingScene = "City_Leo";
+	public Location startingLocation;
 	public Quest startigQuest;
 
 	public Skill basicSkill;

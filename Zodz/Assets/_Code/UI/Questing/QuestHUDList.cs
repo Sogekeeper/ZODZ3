@@ -26,7 +26,7 @@ public class QuestHUDList : MonoBehaviour
         questMenu.SearchAndSelectQuest(targetQuest);
     }
 
-    public void UpdateQuestList(){
+    public void UpdateQuestList(){//evento
         RemoveCompletedItems();
         for (int i = 0; i < targetGroups.Length; i++)
         {
@@ -46,15 +46,16 @@ public class QuestHUDList : MonoBehaviour
             }
         }
         QuestHUDItem item = pooler.SpawnTargetObject(hudItem,10,itemContainer).GetComponent<QuestHUDItem>();
-        item.UpdateItem(targetQuest,this);
         itemList.Add(item);
+        item.UpdateItem(targetQuest,this);
     }
 
     private void RemoveCompletedItems(){
         for(int i = itemList.Count - 1; i >= 0; i--){
-            if(itemList[i].targetQuest.rewarded)
+            if(itemList[i].targetQuest.rewarded){
                 itemList[i].gameObject.SetActive(false);
                 itemList.Remove(itemList[i]);
+            }
         }
     }
 }

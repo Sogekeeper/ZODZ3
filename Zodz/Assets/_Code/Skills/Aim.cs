@@ -13,7 +13,7 @@ public class Aim : MonoBehaviour
     }
 
     public void RotateObjectToAim(Transform objectToRotate){
-        if(aimDirection == null){
+        if(aimDirection == null || Time.timeScale == 0){
             //Debug.Log("Aim Direction on "+gameObject.name+" is null. Can't rotate "+objectToRotate.name);
             return;
         }

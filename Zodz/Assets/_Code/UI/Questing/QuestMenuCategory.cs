@@ -19,7 +19,7 @@ public class QuestMenuCategory : MonoBehaviour
     private RectTransform container;
     private float originalHeight;
     private bool open = false;
-    private List<QuestMenuItem> itemList;
+    private List<QuestMenuItem> itemList = new List<QuestMenuItem>();
     private LayoutElement layout;
 
     private void Awake() {
@@ -56,7 +56,7 @@ public class QuestMenuCategory : MonoBehaviour
             else
                 container.LeanSize(new Vector2(container.rect.width,originalHeight+(itemHeight+verticalOffset)*itemList.Count),0.3f)
                 .setEaseInOutCubic().setIgnoreTimeScale(true);
-        }else{
+        }else{ //fechar
             //TO DO: Prevent selecting the items while the list is disappearing 
             if(instant)
                 container.LeanSize(new Vector2(container.rect.width,originalHeight),0.02f)
@@ -84,7 +84,7 @@ public class QuestMenuCategory : MonoBehaviour
     }
 
     public void UpdateCategory(){
-        float containerHeight = container.rect.height;            
+        float containerHeight = originalHeight;            
         float itemHeight = itemPrefab.GetComponent<QuestMenuItem>().rect.rect.height;
         float currentY = (containerHeight + verticalOffset) * -1;
 
@@ -109,6 +109,7 @@ public class QuestMenuCategory : MonoBehaviour
                     }
                 }
                 if(!found){
+                    Debug.Log("Created Quest Menu Item");
                     QuestMenuItem item = pooler.SpawnTargetObject(itemPrefab,10,transform).GetComponent<QuestMenuItem>();
                     item.rect.anchoredPosition = new Vector2(horizontalOffset,currentY);
                     itemList.Add(item);

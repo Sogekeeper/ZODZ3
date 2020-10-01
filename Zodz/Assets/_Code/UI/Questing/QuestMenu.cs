@@ -7,6 +7,8 @@ using TMPro;
 
 public class QuestMenu : MonoBehaviour
 {
+    public PoolContainer poolerForRewards;
+    public Transform player;
     public TextMeshProUGUI questDescription;
     public PauseMenu menu;
     public QuestMenuCategory[] categories;
@@ -46,8 +48,8 @@ public class QuestMenu : MonoBehaviour
 
     public void CompleteQuest(){
         //spawnar recompensas
-        selectedQuest.Reward();
-        menu.PauseGame();//toggle
+        selectedQuest.Reward(poolerForRewards,player.position);
+        menu.PauseGame(false);
     }
 
     public void ViewQuest(QuestArc target){
@@ -82,9 +84,11 @@ public class QuestMenu : MonoBehaviour
                     if(y < m.outcomes.Length - 1){
                         questDescription.text += "\nor";
                     }
-                }
+                }                
             }
         }
+        questDescription.text += "<indent=0%>\n\n\nReward: "+target.reward.rewardName;
+
         completeButton.interactable = (selectedQuest.completed && !selectedQuest.rewarded);
         if(completeButton.interactable){
             completeText.text = "COMPLETE";
