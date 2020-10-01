@@ -22,6 +22,7 @@ public class UpgradeInterfaceItem : MonoBehaviour, IPointerEnterHandler, IPointe
     }else if(eventData.button == PointerEventData.InputButton.Right){
         upgradeInterface.RemoveUpgradePoint(targetUpgrade);
     }
+    upgradeInterface.OpenToolTip(targetUpgrade,transform.position);
   }
 
   public void OnPointerEnter(PointerEventData eventData)

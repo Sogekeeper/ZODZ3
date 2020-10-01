@@ -49,6 +49,7 @@ public class UpgradeInterface : MonoBehaviour
       tooltipBox.sizeDelta = tooltipText.GetPreferredValues();
       tooltipBox.gameObject.SetActive(true);
       tooltipBox.transform.position = new Vector2(textPos.x,textPos.y);
+      tooltipBox.ForceUpdateRectTransforms();
       tooltipBox.anchoredPosition = new Vector2(tooltipBox.anchoredPosition.x,tooltipBox.anchoredPosition.y+verticalOffset);
       tooltipBox.sizeDelta = tooltipText.GetPreferredValues();
     }

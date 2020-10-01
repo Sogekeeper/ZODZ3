@@ -27,12 +27,27 @@ public class WorldMapInterface : MonoBehaviour
     private Location selectedLocation;
     private WorldSettings.Pathway selectedPathway;
 
+    //cheats
+    private bool teleport = false;
+
     [Header("Debug")]
     public Location fakeOrigin;
 
     private void Start() {
         //gameObject.SetActive(false);
         SelectLocation(null);
+    }
+
+    private void Update(){
+        if(Input.GetKeyDown(KeyCode.U) && isOpen){
+            travelButton.gameObject.SetActive(true);
+        }
+        if(Input.GetKeyDown(KeyCode.T) && isOpen){
+            teleport = true;
+        }
+        if(Input.GetKeyUp(KeyCode.T)){
+            teleport = false;
+        }
     }
 
     public void ToggleMap(InputAction.CallbackContext context){
@@ -69,6 +84,10 @@ public class WorldMapInterface : MonoBehaviour
         globalMapSettings.mapDifficulty = MapSettings.MapDifficulty.EASY;
         Time.timeScale = 1;
         worldObject.SetPathway(selectedPathway);
+        if(teleport){
+            SceneManager.LoadScene(globalMapSettings.destinationScene.Value);
+            return;
+        }
         SceneManager.LoadScene(roomSceneString.Value);        
     }
 

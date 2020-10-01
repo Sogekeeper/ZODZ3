@@ -102,7 +102,7 @@ public class MapRoomGenerator : MonoBehaviour
         //spawnar recompensa e abrir portas
         if(!playerObject) return;
         if(currentReward){
-            Reward rr = pooler.SpawnTargetObject(currentReward.thisPoolObject,1,roomParent.transform).GetComponent<Reward>();
+            Reward rr = pooler.SpawnTargetObject(currentReward.thisPoolObject,1,transform).GetComponent<Reward>();
             rr.transform.position = playerObject.transform.position;
         }
         for(int i = 0; i < currentDeco.doors.Length;i++){
