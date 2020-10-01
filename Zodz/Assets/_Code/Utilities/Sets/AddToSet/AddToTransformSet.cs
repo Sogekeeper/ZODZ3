@@ -14,7 +14,7 @@ public class AddToTransformSet : MonoBehaviour
 
     private void OnDisable() {
         if(targetSet){
-            targetSet.Add(transform);
+            targetSet.Remove(transform);
         }
     }
 }

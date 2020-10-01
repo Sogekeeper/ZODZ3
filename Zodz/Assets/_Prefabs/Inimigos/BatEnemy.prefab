@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 6140718451871822251}
   - component: {fileID: 2540039131303456097}
   - component: {fileID: 5324964036969613524}
+  - component: {fileID: 798545476561222621}
   m_Layer: 9
   m_Name: BatEnemy
   m_TagString: Untagged
@@ -437,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRace: {fileID: 0}
-  baseLife: 20
+  baseLife: 70
   baseMana: 20
   baseStrength: 5
   baseMind: 5
@@ -455,6 +456,17 @@ MonoBehaviour:
       - m_Target: {fileID: 53258094676240984}
         m_MethodName: SpawnPopNumber
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1383530408625454080}
+        m_MethodName: InterruptSkill
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -492,7 +504,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rb: {fileID: 6992759610702180439}
-  entityGraphic: {fileID: 0}
+  entityGraphic: {fileID: 7168978196785932815}
   anim: {fileID: 0}
   takeDamageSound: {fileID: 0}
   deathSound: {fileID: 0}
@@ -607,14 +619,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangedSkill: {fileID: 11400000, guid: f48e21c1b5eb0ae43aff017a061fce44, type: 2}
-  rangedReferences: {fileID: 0}
+  rangedReferences: {fileID: 11400000, guid: 5a2b8c53bd751be40832e10aef5a6e61, type: 2}
   rangeToFight: 4
-  rangeToMove: 10
+  rangeToMove: 5
+  timeToAttackAgain: 3
+  timeToMoveAgain: 4
   minShots: 1
   maxShots: 3
   aimToTarget: {fileID: 5649797824848045892}
   anim: {fileID: 9096983849124587972}
   skillUser: {fileID: 1383530408625454080}
+--- !u!114 &798545476561222621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324964036969613525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770d07225f1edd24ebf0488f5e5518a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entitySize: 1
+  entityCost: 4
 --- !u!1 &5508595665691782817
 GameObject:
   m_ObjectHideFlags: 0
