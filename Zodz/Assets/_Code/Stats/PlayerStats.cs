@@ -88,6 +88,11 @@ public class PlayerStats : EntityStats
         if(Input.GetKeyDown(KeyCode.Alpha5)){
             Debug.Log("Strength :"+strength.Value+" Mind :"+mind.Value);
         }
+        if(Input.GetKeyDown(KeyCode.Alpha9)){
+            strength.AddModifier(new StatModifier(800,StatModType.Flat));
+            mind.AddModifier(new StatModifier(800,StatModType.Flat));
+            Heal(9000);
+        }
          
     }
 

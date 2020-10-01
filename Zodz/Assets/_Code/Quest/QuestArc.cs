@@ -10,7 +10,7 @@ public class QuestArc : ScriptableObject
     public GameEvent questUpdateEvent;//para interface
     public bool completed = false;
     public bool rewarded = false;
-    public PoolObject reward;
+    public Reward reward;
     public List<Mission> missions = new List<Mission>();
 
     public bool initialized = false;
@@ -47,7 +47,9 @@ public class QuestArc : ScriptableObject
         questUpdateEvent.Raise();    
     }
 
-    public void Reward(){
+    public void Reward(PoolContainer pooler, Vector3 spawnPosition){
+        PoolObject po = pooler.SpawnTargetObject(reward.thisPoolObject,2);
+        po.transform.position = spawnPosition;
         rewarded = true;
         questUpdateEvent.Raise();
     }

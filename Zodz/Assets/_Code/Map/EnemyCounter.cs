@@ -22,11 +22,11 @@ public class EnemyCounter : MonoBehaviour
     }
 
     public void AmountChangedCallback(){
+        if(textCounter){
+            textCounter.text = "Enemies Left: "+enemiesSet.Items.Count;
+        }
         if(enemiesSet.Items.Count <= targetAmount){
             OnReachTarget?.Invoke();
-            if(textCounter){
-                textCounter.text = "Enemies Left: "+enemiesSet.Items.Count;
-            }
         }
     }
 

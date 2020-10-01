@@ -15,6 +15,7 @@ public class MapRoom : ScriptableObject
         if(index == previousIndex){
             index = (index + 1) % decorations.Length;
         }
+        index = Mathf.Min(decorations.Length-1,index);
         return decorations[index];
     }
 }
