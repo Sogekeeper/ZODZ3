@@ -12,7 +12,7 @@ public class UpdateLunarInfo : MonoBehaviour
 	public Image lunarIcon;
 	public bool alreadyChoosed;
 
-	private void OnEnable()
+	private void Start()
 	{
 		if (alreadyChoosed)
 		{
