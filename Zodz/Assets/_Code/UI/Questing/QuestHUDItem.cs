@@ -19,6 +19,7 @@ public class QuestHUDItem : MonoBehaviour
         owner = hudList;
         questLabel.text = target.questName;
         if(target.completed){
+            buttonText.text = "";
             buttonText.SetText("Done. Click here to complete Quest.");
             buttonText.color = completedButtonColor;
         }else{
