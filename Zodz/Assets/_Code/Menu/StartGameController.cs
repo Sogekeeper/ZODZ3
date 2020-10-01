@@ -6,19 +6,10 @@ using UnityEngine.SceneManagement;
 public class StartGameController : MonoBehaviour
 {
 	public QuestController questController;
+	public WorldSettings worldSettings;
 	private string startSceneName;
 	
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
 	public void SetConfigToStartGame()
 	{
@@ -28,6 +19,7 @@ public class StartGameController : MonoBehaviour
 
 	public void StartGame()
 	{
+		worldSettings.InitializeWorld(PlayerRaceChoice.playerRaceChoice.startingLocation);
 		SceneManager.LoadScene(startSceneName);
 	}
 }

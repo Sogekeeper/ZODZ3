@@ -6,7 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Quest", menuName = "Questing/Quest Controller", order = 3)]
 public class QuestController : ScriptableObject
 {
-    //WIP - Vai ter muito mais coisa
+    //OLD NÃO UTILIZADO
 
     public Quest activeQuest;
     

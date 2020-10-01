@@ -4869,6 +4869,7 @@ GameObject:
   - component: {fileID: 6481401720598475875}
   - component: {fileID: 6481401720598475873}
   - component: {fileID: 8462771940457454986}
+  - component: {fileID: 1168973264}
   m_Layer: 10
   m_Name: Portal
   m_TagString: Untagged
@@ -4989,6 +4990,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapInterface: {fileID: 0}
+--- !u!114 &1168973264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481401720598475901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dd221ad9f4ee548b172b0b55ee12d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callOnStart: 1
+  isInstant: 1
+  secondsToWait: 0.5
+  OnTimerEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7cad1b41d90923e4b8c5e9b4e1b4514c, type: 2}
+        m_MethodName: SetCurrentLocation
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 8f52c2d95a372cf4dbbdd69fd848e72a,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Location, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &6481401720052704400
 PrefabInstance:
   m_ObjectHideFlags: 0

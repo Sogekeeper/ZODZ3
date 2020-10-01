@@ -34,6 +34,7 @@ public class WorldSettings : ScriptableObject
     public Location origin;
     public Location currentLocation {get;private set;}
     public Location destination {get;private set;} //null on cities
+    public Pathway currentPathway{get;private set;} //null on cities
     public Location[] locations;
 
     public List<Pathway> pathways {get; private set;}
@@ -50,6 +51,9 @@ public class WorldSettings : ScriptableObject
     }
     public void SetDestination(Location current){
         destination = current;
+    }
+    public void SetPathway(Pathway current){
+        currentPathway = current;
     }
 
     private void GeneratePathways(){

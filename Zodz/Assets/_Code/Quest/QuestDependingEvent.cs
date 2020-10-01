@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class QuestDependingEvent : MonoBehaviour
 {
+    //OLD NÃO UTILIZADO
+    
     public Quest targetQuest;
     public int targetMissionIndex;
 
