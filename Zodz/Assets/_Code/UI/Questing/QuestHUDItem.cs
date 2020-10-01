@@ -19,15 +19,18 @@ public class QuestHUDItem : MonoBehaviour
         owner = hudList;
         questLabel.text = target.questName;
         if(target.completed){
-            buttonText.text = "";
-            buttonText.SetText("Done. Click here to complete Quest.");
+            buttonText.gameObject.SetActive(false);
+            buttonText.text = "Completed. Click here for Rewards.";
+            buttonText.ForceMeshUpdate();
+            buttonText.gameObject.SetActive(true);
             buttonText.color = completedButtonColor;
         }else{
             Mission m = target.GetCurrentMission();
             if(m == null){
                 Debug.Log("Ongoing QuestArc does not have active missions: "+target.questName);
             }else{
-                buttonText.SetText("");
+                buttonText.gameObject.SetActive(false);
+                buttonText.text="";
                 for(int i = 0; i < m.outcomes.Length;i++){
                     for(int y = 0; y < m.outcomes[i].goals.Length; y++){
                         buttonText.text += m.outcomes[i].goals[y].shortDescription;
@@ -38,6 +41,8 @@ public class QuestHUDItem : MonoBehaviour
                     if(i < m.outcomes.Length -1) buttonText.text += "\nor\n";
                 }
                 buttonText.color = defaultButtonColor;
+                buttonText.ForceMeshUpdate();
+                buttonText.gameObject.SetActive(true);
             }
         }
         Vector2 textSize = buttonText.GetPreferredValues(buttonText.text);
