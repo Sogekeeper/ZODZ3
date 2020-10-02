@@ -24,7 +24,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     public void UseBasicSkill(InputAction.CallbackContext context){
-        if(context.performed){
+        if(context.performed && Time.timeScale > 0){
             pressing = true;
         }else if(context.canceled){
             pressing = false;
@@ -37,7 +37,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
     public void UseMagicSkill(InputAction.CallbackContext context){
-        if(context.performed && !skillUser.usingSkill && canInput){
+        if(context.performed && !skillUser.usingSkill && canInput && Time.timeScale > 0){
             if(playerStats.GetSkillCooldown(playerStats.selectedMagicSkill) <= 0
                 && skillUser.userStats.currentMana >= playerStats.selectedMagicSkill.skillCost){
                skillUser.InitializeSkill(playerStats.selectedMagicSkill);
@@ -45,7 +45,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
     public void UseUltimateSkill(InputAction.CallbackContext context){
-        if(context.performed && !skillUser.usingSkill && canInput){
+        if(context.performed && !skillUser.usingSkill && canInput && Time.timeScale > 0){
             if(playerStats.GetSkillCooldown(playerStats.solarRace.ultimateSkill) <= 0
                 && skillUser.userStats.currentMana >= playerStats.solarRace.ultimateSkill.skillCost){
                skillUser.InitializeSkill(playerStats.solarRace.ultimateSkill);
@@ -54,12 +54,12 @@ public class PlayerCombat : MonoBehaviour
     }
 
     public void SwapMagicSkillForwards(InputAction.CallbackContext context){
-        if(context.performed && canInput){
+        if(context.performed && canInput && Time.timeScale > 0){
             playerStats.SelectNextSkill(true);
         }
     }
     public void SwapMagicSkillBackwards(InputAction.CallbackContext context){
-        if(context.performed && canInput){
+        if(context.performed && canInput && Time.timeScale > 0){
             playerStats.SelectNextSkill(false);
         }
     }
