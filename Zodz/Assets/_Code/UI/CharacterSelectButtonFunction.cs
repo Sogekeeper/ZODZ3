@@ -47,7 +47,7 @@ public class CharacterSelectButtonFunction : MonoBehaviour, IPointerEnterHandler
 
 	public void OnEnable()
 	{
-		this.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
+		
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
