@@ -62,7 +62,7 @@ public class RandomizeLunar : MonoBehaviour
 				}
 			}
 			lunarPanels[2].raceToGetLunarInfo = random3;
-			Debug.Log("Randomizando Lunar");
+			//Debug.Log("Randomizando Lunar");
 		}
 	}
 }
