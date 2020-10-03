@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIPlayerFullSkills : MonoBehaviour
 {
     public PlayerStats player;
+    public RectTransform selectedIndicator;
     public UISkillIcon[] magicSkills;
     public UISkillIcon ultimateSkill;
     public Text ultCostText;
@@ -14,6 +15,8 @@ public class UIPlayerFullSkills : MonoBehaviour
         
         UpdateSkillIcons();
         UpdateSelectedSkill();
+        selectedIndicator.anchoredPosition = new Vector2(-9999, -9999);
+        Invoke("UpdateSelectedSkill",0.1f);
     }
 
     private void Update() {
@@ -33,6 +36,8 @@ public class UIPlayerFullSkills : MonoBehaviour
         for(int i = 0; i < magicSkills.Length; i++){
             if(magicSkills[i].currentSkill && magicSkills[i].currentSkill == player.selectedMagicSkill){
                 magicSkills[i].ToggleSelection(true);
+                selectedIndicator.transform.position = magicSkills[i].transform.position;
+                selectedIndicator.anchoredPosition = new Vector2(selectedIndicator.anchoredPosition.x+45, selectedIndicator.anchoredPosition.y);
             }else{
                 magicSkills[i].ToggleSelection(false);
             }

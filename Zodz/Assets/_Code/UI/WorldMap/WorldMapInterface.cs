@@ -12,6 +12,7 @@ public class WorldMapInterface : MonoBehaviour
     public StringVariable roomSceneString;
     public Button travelButton;
     public GameObject infoPanel;
+    public Transform currentLocationIndicator;
     [Header("Info Panel Details")]
     public Text locationNameText;
     public Text locationDescriptionText;
