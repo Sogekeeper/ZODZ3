@@ -22,7 +22,7 @@ public class MissionCounter : ScriptableObject
             parentMission?.ResolveCompletedCounter(this);
         }
 
-        if(questUpdateEvent != null)questUpdateEvent.Raise();
+        questUpdateEvent?.Raise();
     }
 
 }

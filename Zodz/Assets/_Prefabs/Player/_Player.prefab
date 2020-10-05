@@ -453,7 +453,7 @@ MonoBehaviour:
   solarRace: {fileID: 11400000, guid: 28ec612fb13bf0d44a756836a6270632, type: 2}
   lunarRace: {fileID: 0}
   ascendantRace: {fileID: 0}
-  skillCooldowns: []
+  skillSwitchSound: {fileID: 8300000, guid: 037027414fc3d2b42bb78c6d8fe4edab, type: 3}
   OnSkillSwaped:
     m_PersistentCalls:
       m_Calls:
@@ -480,8 +480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fa4eba052ee754295197f7ee8e0e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 220
-  dashSpeed: 500
+  moveSpeed: 260
+  dashSpeed: 600
   dashIFramesTime: 0.1
   dashTime: 0.15
   dashCooldown: 1

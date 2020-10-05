@@ -53,7 +53,6 @@ public class Mission : ScriptableObject
     }
 
     public void ResolveCompletedCounter(MissionCounter counter){
-        if(!isActive) return;
         for(int i = 0; i < outcomes.Length; i++){
             for(int y = 0; y < outcomes[i].goals.Length; y++){
                 if(outcomes[i].goals[y].goalCounter == counter){
