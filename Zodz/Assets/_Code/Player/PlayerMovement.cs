@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     }
   }
 
-  private bool CheckIfCanUpdateAnimatorInput(Vector2 moveInput){
+  public bool CheckIfCanUpdateAnimatorInput(){
     if(movementDirection.y < -0.1f || movementDirection.y > 0.1f || 
       movementDirection.x < -0.1f || movementDirection.x > 0.1f){
         return true;
@@ -96,9 +96,9 @@ public class PlayerMovement : MonoBehaviour
     //quando o valor do parametro no animator é 0, ele pode não mostrar a anim correta na blend tree
     //então a gente checa se pode colocar o valor    
     moveAnimOutput.SetFloat("speed",Mathf.Clamp01(Mathf.Abs(movementDirection.magnitude)));
-    if(CheckIfCanUpdateAnimatorInput(movementDirection)) 
+    if(CheckIfCanUpdateAnimatorInput()) 
       moveAnimOutput.SetFloat("horizontal",movementDirection.x);
-    if(CheckIfCanUpdateAnimatorInput(movementDirection)){
+    if(CheckIfCanUpdateAnimatorInput()){
       if(movementDirection.y > -0.8f && movementDirection.y < 0.8f) //caso o jogador estiver apertando 2 direções (diagonal), os dois viram 0.7, eu quero com certeza mostrar o andar pro lado 
         moveAnimOutput.SetFloat("vertical",0);
       else

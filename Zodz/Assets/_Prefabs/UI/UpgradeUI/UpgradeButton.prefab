@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 8760469718402851417}
   - component: {fileID: 8760469718402851421}
   - component: {fileID: 8760469718402851423}
+  - component: {fileID: 6772734032732975238}
   m_Layer: 0
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -409,7 +410,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8760469718402851421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6772734032732975238}
+        m_MethodName: PlayThisSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6772734032732975238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760469718402851411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8444f657fdb7e4286e0c9b07e72937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUI: 1
+  targetAudio: {fileID: 8300000, guid: 60a7721c96264224b94e95488ab0f9e5, type: 3}
+  baseVolume: 1
 --- !u!1 &8760469718790561395
 GameObject:
   m_ObjectHideFlags: 0
