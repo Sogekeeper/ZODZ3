@@ -67,7 +67,7 @@ public class Mission : ScriptableObject
     }
 
     public void CompleteOutcome(int outcomeIndex){// para completar outcome manualmente
-        if(GetCompletedOutcome() != null || !isActive) return; //evita escolher outro outcome depois que um ja escolhido
+        if(!isActive) return; //evita escolher outro outcome depois que um ja escolhido
         outcomes[outcomeIndex].completed = true;
         for(int i = 0; i < outcomes[outcomeIndex].goals.Length;i++){
             outcomes[outcomeIndex].goals[i].completed = true;

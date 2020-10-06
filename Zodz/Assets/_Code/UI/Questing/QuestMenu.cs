@@ -23,6 +23,7 @@ public class QuestMenu : MonoBehaviour
 
     private void Start(){
         UpdateCategories();
+        ViewQuest(null);
         completeButton.interactable = false;
         completeText.text = "COMPLETED";
         completeText.color = completedTextColor;
@@ -49,10 +50,18 @@ public class QuestMenu : MonoBehaviour
     public void CompleteQuest(){
         //spawnar recompensas
         selectedQuest.Reward(poolerForRewards,player.position);
+        ViewQuest(null);
         menu.PauseGame(false);
     }
 
     public void ViewQuest(QuestArc target){
+        if(target == null){
+            questDescription.text= "";
+            completeButton.interactable = false;
+            completeText.text = "NO SELECTION";
+            completeText.color = completedTextColor;
+            return;
+        }
         selectedQuest = target;
         questDescription.text=
         "<size=200%>"+selectedQuest.questName+

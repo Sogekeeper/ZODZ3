@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 2401772608745509814}
   - component: {fileID: 2401772608745509815}
   - component: {fileID: 2401772608745509811}
+  - component: {fileID: 2896722047803395561}
   m_Layer: 11
   m_Name: VirgoBasicProjectile
   m_TagString: Untagged
@@ -130,7 +131,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401772608745509813}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.8786108, y: 0.85637945, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -145,13 +146,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401772608745509813}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002585411, y: 0.049251437}
+  m_Offset: {x: 0.002585411, y: 0.015083879}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -162,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27647972, y: 0.5849118}
+  m_Size: {x: 0.27647972, y: 0.5165767}
   m_EdgeRadius: 0
 --- !u!50 &2401772608745509809
 Rigidbody2D:
@@ -197,12 +198,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5b6b49957df894cac3437c3ec9b436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTeam: {fileID: 0}
+  hostileTo: []
   damageValue: 10
   knockbackForce: 0
   statesToApply: []
   owner: {fileID: 0}
   manaReplenishAmount: 2
+  skillType: 0
+  damageType: 0
   OnHitEntity:
     m_PersistentCalls:
       m_Calls: []
@@ -241,4 +244,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSpawn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2896722047803395561}
+        m_MethodName: StartColliderDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2896722047803395561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401772608745509813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e154e8969d73468498ac25550017218c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisCollider: {fileID: 2401772608745509808}
+  secondsForCollider: 0.02

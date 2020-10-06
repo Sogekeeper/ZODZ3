@@ -36,7 +36,7 @@ public class VirgoBasicProjectile : ProjectileObject
         anim.ResetTrigger("fade");
         anim.Play("Travel",0,0);
         currentSpeed = travelSpeed;
-        col.enabled = true;
+        //col.enabled = true;
         moving = true;
         fadeTimer = timeToFade;
         projectileDamageSource.owner = user.userStats;
