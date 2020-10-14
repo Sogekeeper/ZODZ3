@@ -489,6 +489,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1041429866945360368, guid: 144a6b1b4486ba8419065a259954265b,
+        type: 3}
+      propertyPath: m_Name
+      value: Map Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 1041429867704173482, guid: 144a6b1b4486ba8419065a259954265b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -586,6 +591,11 @@ PrefabInstance:
       propertyPath: pooler
       value: 
       objectReference: {fileID: 6025763815268998994}
+    - target: {fileID: 1492876870658987808, guid: 865c709309032c140a934d01ea93d1c0,
+        type: 3}
+      propertyPath: menuHeader
+      value: 
+      objectReference: {fileID: 4558965424884152219}
     - target: {fileID: 7836691642992537458, guid: 865c709309032c140a934d01ea93d1c0,
         type: 3}
       propertyPath: m_Name
@@ -705,7 +715,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9009638533428832283}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 865c709309032c140a934d01ea93d1c0, type: 3}
 --- !u!224 &3390538773439395984 stripped
@@ -714,6 +724,30 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4885306684003358494}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6303872970030448702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1492876870658987808, guid: 865c709309032c140a934d01ea93d1c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4885306684003358494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75266e7c11bf32444907aafd9a6e1de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4558965424884152219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8973609646612635781, guid: 865c709309032c140a934d01ea93d1c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4885306684003358494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5925207433322167953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1212,6 +1246,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3889561280664775122, guid: 82ea46fa122784942ab6415a2129ba80,
+        type: 3}
+      propertyPath: m_Name
+      value: Game Camera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82ea46fa122784942ab6415a2129ba80, type: 3}
 --- !u!4 &4725760886718228449 stripped
@@ -1427,6 +1466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802529148561786541, guid: 3b29ca02c2c88a448b4bfb28a7d28ce9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0025634766
       objectReference: {fileID: 0}
     - target: {fileID: 2931364564010235923, guid: 3b29ca02c2c88a448b4bfb28a7d28ce9,
         type: 3}
@@ -1937,6 +1981,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 28ec612fb13bf0d44a756836a6270632,
         type: 2}
+    - target: {fileID: 2907926627411028000, guid: 5f7baeee9dc77c544b61a88b54dbc4e7,
+        type: 3}
+      propertyPath: augmentMenu
+      value: 
+      objectReference: {fileID: 6303872970030448702}
     - target: {fileID: 2907926627411028054, guid: 5f7baeee9dc77c544b61a88b54dbc4e7,
         type: 3}
       propertyPath: m_Name

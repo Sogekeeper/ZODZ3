@@ -15,6 +15,7 @@ public class UpgradeInterface : MonoBehaviour
     public RectTransform tooltipBox;
 
     public void ToggleInterface(bool active){
+      if(active && Time.timeScale == 0) return; //player is seeing another menu
       gameObject.SetActive(active);
       Time.timeScale = active ? 0 : 1;
       UpdateCrystalText();

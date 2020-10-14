@@ -15,6 +15,8 @@ public class AugmentMenu : MonoBehaviour
     private PlayerStats playerStats;
 
     public void SetupMenu(Race raceToUpgrade, int astralMapIndex, PlayerStats player){
+        if(raceToUpgrade.augments == null || raceToUpgrade.augments.Length <= 0) return;
+        playerStats = player;
         for (int i = 0; i < augmentPanelsContainer.childCount; i++)
         {
             augmentPanelsContainer.GetChild(i).gameObject.SetActive(false);
@@ -27,16 +29,14 @@ public class AugmentMenu : MonoBehaviour
             menuItem.SetupAugmentMenuItem(raceToUpgrade.augments[i],this);            
         }
         menuHeader.text = "Choose an augment for the "+raceToUpgrade.magicSkill.skillName+" skill.";
-        playerStats.CanAct(false);
-        playerStats.CanMove(false);
+        Time.timeScale = 0;
     }
 
     public void PickAugment(AugmentOption optionPicked){
         // resolve augment and close menu
         optionPicked.UpgradeMultipliers();
         playerCharacterSettings.augmentsPicked[mapIndex] = optionPicked;
-        playerStats.CanAct(true);
-        playerStats.CanMove(true);
+        Time.timeScale = 1;
         gameObject.SetActive(false);
     }
     

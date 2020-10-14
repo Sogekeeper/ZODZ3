@@ -47,10 +47,12 @@ public class PlayerStats : EntityStats
         lunarRace = characterSettings.lunarRace;
         ascendantRace = characterSettings.ascendantRace;
 
+        //check if race is the same as setup race (ONLY NECESSARY INSIDE UNITY EDITOR)
+        //If not, remake astral map
         if(characterSettings.astralMapRaces[0] != solarRace){
             characterSettings.astralMapRaces = new Race[8];
             AddRaceToMap(solarRace);            
-        }else{
+        }else{ //if it is, add any other magic abilities to the filtered map (this is to load abilities between maps)
             for(int i = 0; i < characterSettings.astralMapRaces.Length; i++){
                 if(characterSettings.astralMapRaces[i] != null){
                     AddToFilteredMap(characterSettings.astralMapRaces[i]);

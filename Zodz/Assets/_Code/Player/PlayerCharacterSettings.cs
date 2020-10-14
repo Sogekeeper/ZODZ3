@@ -33,12 +33,22 @@ public class PlayerCharacterSettings : ScriptableObject
         //setar vida
     }
 
+    [ContextMenu("DEBUG - Reset Augments Only")]
     public void ResetAugments(){
         if(possibleRaces == null) return;
         for (int i = 0; i < possibleRaces.Length; i++)
         {
             possibleRaces[i].ResetAugments();
         }
+        augmentsPicked = new AugmentOption[8];
+    }
+
+    [ContextMenu("DEBUG - Reset Character")]
+    public void DebugResetCharacter(){
+        ResetAugments();
+        astralMapRaces = new Race[8];
+        crystals = 0;
+        coins = 0;
         augmentsPicked = new AugmentOption[8];
     }
 

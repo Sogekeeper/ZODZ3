@@ -59,6 +59,7 @@ public class WorldMapInterface : MonoBehaviour
     }
 
     public void OpenMap(bool activeTravelButton){
+        if(Time.timeScale == 0) return;  //player seeing another menu
         gameObject.SetActive(true);
         isOpen = true;
         Time.timeScale = 0;

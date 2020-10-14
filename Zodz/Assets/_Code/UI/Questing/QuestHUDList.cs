@@ -21,6 +21,7 @@ public class QuestHUDList : MonoBehaviour
     }
 
     public void OpenJournalAndSelect(QuestArc targetQuest){
+        if(Time.timeScale == 0) return; //player seeing another menu
         pauseMenu.PauseGame(true);
         tabMenu.SelectContent(questMenu.gameObject);
         questMenu.SearchAndSelectQuest(targetQuest);

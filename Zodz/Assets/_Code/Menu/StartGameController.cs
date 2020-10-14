@@ -7,6 +7,7 @@ public class StartGameController : MonoBehaviour
 {
 	public QuestController questController;
 	public WorldSettings worldSettings;
+	public PlayerCharacterSettings playerCharacterSettings;
 	private string startSceneName;
 	
 	private void Awake() {
@@ -22,6 +23,7 @@ public class StartGameController : MonoBehaviour
 	public void StartGame()
 	{
 		worldSettings.InitializeWorld(PlayerRaceChoice.playerRaceChoice.startingLocation);
+		playerCharacterSettings.SetupCharacter();
 		SceneManager.LoadScene(startSceneName);
 	}
 }

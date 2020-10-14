@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PauseController : MonoBehaviour
 {
+
+	//OLD, NOT USED
 	private void Awake()
 	{
 	
