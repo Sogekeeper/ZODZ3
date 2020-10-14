@@ -9,7 +9,9 @@ public class StartGameController : MonoBehaviour
 	public WorldSettings worldSettings;
 	private string startSceneName;
 	
-    
+	private void Awake() {
+		
+	}
 
 	public void SetConfigToStartGame()
 	{

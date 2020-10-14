@@ -13,4 +13,13 @@ public class QuestGroup : ScriptableObject
         targetQuest.InitializeQuest();
         targetQuest.questUpdateEvent.Raise();
     }
+
+    [ContextMenu("DEBUG - Reset Quest Group")]
+    public void ResetQuestGroup(){
+        for (int i = 0; i < quests.Count; i++)
+        {
+            quests[i].ResetQuestArc();
+        }
+        quests.Clear();
+    }
 }

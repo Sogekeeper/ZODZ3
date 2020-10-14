@@ -84,6 +84,7 @@ public class EntityStats : MonoBehaviour
     private bool _canAct = true;
     public void CanMove(bool canItMove){canMove = canItMove;rb.velocity = Vector3.zero;} //pra unity eventos
     public void CanAct(bool canItAct){canAct = canItAct;}
+    public void ToggleMoveAndAct(bool active){CanMove(active);CanAct(active);}
 
     [Header("Other Info")]
     public bool knockbackImmune = false;

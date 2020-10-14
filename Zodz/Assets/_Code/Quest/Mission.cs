@@ -81,4 +81,19 @@ public class Mission : ScriptableObject
         isActive = false;
         parentQuestArc.questUpdateEvent.Raise();
     }
+
+    [ContextMenu("DEBUG - Reset Mission")]
+    public void ResetMission(){
+        for (int i = 0; i < outcomes.Length; i++)
+        {
+            for (int y = 0; y < outcomes[i].goals.Length; y++)
+            {
+                outcomes[i].goals[y].completed = false;
+                if(outcomes[i].goals[y].goalCounter != null)
+                    outcomes[i].goals[y].goalCounter.currentAmount = 0;
+            }
+            outcomes[i].completed = false;
+        }
+        isActive = false;
+    }
 }

@@ -10,8 +10,10 @@ public class DoTState : State
     };
   public int maxStacks = 1;
   public float damageAmountPercentage = 0.05f;
+  public Multiplier damageMultiplier;
     public PercentageType percentageType;
   public float initialDuration = 3;
+  public Multiplier durationMultiplier;
   public float initialTickRate = 0.8f;
   //public float durationReduction = 0.0f;
 
@@ -20,7 +22,7 @@ public class DoTState : State
     StateStack ss = receiver.GetStack(this);
     if (ss == null)
     {
-      ss = new StateStack(this, initialDuration, initialTickRate, 1, applier);
+      ss = new StateStack(this, initialDuration*durationMultiplier.GetValue(), initialTickRate, 1, applier);
       receiver.states.Add(ss);
     }
     else
@@ -54,6 +56,8 @@ public class DoTState : State
         totalDamage = totalDamage * stack.stateOrigin.spirit.Value;
     else if(percentageType == PercentageType.Constitution)    
         totalDamage = totalDamage * stack.stateOrigin.constitution.Value;
+    
+    totalDamage *= damageMultiplier.GetValue();
     if(totalDamage < 1) totalDamage = 1;
     receiver.TakeDamage((int)totalDamage);
     

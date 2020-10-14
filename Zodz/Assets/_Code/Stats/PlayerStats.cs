@@ -28,7 +28,9 @@ public class PlayerStats : EntityStats
     public Skill selectedMagicSkill{get; private set;}
     public int selectedSkillIndex{get;private set;}
 
+    public AugmentMenu augmentMenu;
     public AudioClip skillSwitchSound;
+
     public UnityEvent OnSkillSwaped;
 
     private SkillUser skillUser;
@@ -147,17 +149,20 @@ public class PlayerStats : EntityStats
 
     public bool AddRaceToMap(Race targetRace){//retorna true se deu certo/tinha lugar
         bool added = false;
+        int addedIndex = 0; //to set the augment later if duplicate pickup
         for(int i = 0; i < characterSettings.astralMapRaces.Length; i++){
             if(characterSettings.astralMapRaces[i] == null){
                 added = true;
                 characterSettings.astralMapRaces[i] = targetRace;
+                addedIndex = i;
                 break;
             }
         }
         if(!added) return false;
 
         if(!AddToFilteredMap(targetRace)){
-            //upgrade here
+            //openUpgradeInterface
+            augmentMenu.SetupMenu(targetRace,addedIndex,this);
         }
         
         OnSkillSwaped?.Invoke();

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //OLD
-[CreateAssetMenu(fileName = "Quest", menuName = "Questing/Quest", order = 3)]
 public class Quest : ScriptableObject
 {
     public string questArcName;

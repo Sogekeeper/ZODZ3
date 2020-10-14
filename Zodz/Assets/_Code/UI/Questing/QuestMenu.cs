@@ -23,7 +23,7 @@ public class QuestMenu : MonoBehaviour
 
     private void Start(){
         UpdateCategories();
-        ViewQuest(null);
+        if(selectedQuest == null)ViewQuest(null);
         completeButton.interactable = false;
         completeText.text = "COMPLETED";
         completeText.color = completedTextColor;

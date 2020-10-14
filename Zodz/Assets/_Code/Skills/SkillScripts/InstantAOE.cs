@@ -7,10 +7,12 @@ public class InstantAOE : Skill
 {
     public DamageSource damageInformation;
     public float range = 10;
+    public Multiplier rangeMultiplier;
     public EntityRuntimeSet globalEntitySet;
     [Header("Optional")]
     public RaceDependingAnimSet castingAnimSet;
     public float victimsKnockback = 0;
+    public Multiplier knockbackMultiplier;
     public bool invertKnockback = false;
 
 
@@ -50,10 +52,10 @@ public class InstantAOE : Skill
         if(globalEntitySet.Items.Count > 0){
             for(int i = 0; i < globalEntitySet.Items.Count; i++){
                 float dist = Vector2.Distance(user.transform.position, globalEntitySet.Items[i].transform.position);
-                if(dist<range){
+                if(dist<range*rangeMultiplier.GetValue()){
                     globalEntitySet.Items[i].TakeDamage(damageInformation);
                     damageInformation.ApplyStatesToEntity(globalEntitySet.Items[i]);
-                    globalEntitySet.Items[i].ApplyKnockback(user.transform.position,victimsKnockback);
+                    globalEntitySet.Items[i].ApplyKnockback(user.transform.position,victimsKnockback*knockbackMultiplier.GetValue());
                 }
 
             }

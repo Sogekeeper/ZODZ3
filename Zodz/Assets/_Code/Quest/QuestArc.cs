@@ -60,4 +60,16 @@ public class QuestArc : ScriptableObject
             missions[i].isActive = false;
         }
     }
+
+    [ContextMenu("DEBUG - Reset Quest")]
+    public void ResetQuestArc(){
+        rewarded = false;
+        completed = false;
+        initialized = false;
+        for (int i = 0; i < missions.Count; i++)
+        {
+            missions[i].ResetMission();
+        }
+        missions.Clear();
+    }
 }

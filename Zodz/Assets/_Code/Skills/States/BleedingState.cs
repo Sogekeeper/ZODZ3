@@ -9,7 +9,9 @@ public class BleedingState : State
   public bool percentDamage = true;
   public float damageAmount = 0.05f;
   public float damagePercentIncreasePerStack = 0.5f;
+  public Multiplier bleedDamageMultiplier;
   public float initialDuration = 3;
+  public Multiplier bleedDurationMultiplier;
   public float initialTickRate = 0.8f;
   public float durationReduction = 0.75f;
 
@@ -17,7 +19,7 @@ public class BleedingState : State
   {
     StateStack ss = receiver.GetStack(this);
     if(ss == null){
-      ss = new StateStack(this, initialDuration,initialTickRate,1,applier);
+      ss = new StateStack(this, initialDuration*bleedDurationMultiplier.GetValue(),initialTickRate,1,applier);
       receiver.states.Add(ss);
     }else{
       if(ss.stackAmount < maxStacks){
@@ -36,11 +38,9 @@ public class BleedingState : State
     }
     if(percentDamage){
       totalDamage = totalDamage * stack.stateOrigin.strength.Value;
-      if(totalDamage < 1) totalDamage = 1;
-      receiver.TakeDamage((int)totalDamage);
-    }else{
-      if(totalDamage < 1) totalDamage = 1;
-      receiver.TakeDamage((int)totalDamage);
     }
+    totalDamage *= bleedDamageMultiplier.GetValue();
+    if(totalDamage < 1) totalDamage = 1;
+      receiver.TakeDamage((int)totalDamage);
   }
 }

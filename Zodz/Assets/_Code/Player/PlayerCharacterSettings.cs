@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Settings", menuName = "Player/Character Settings", order = 0)]
 public class PlayerCharacterSettings : ScriptableObject
 {
+    public Race[] possibleRaces;
+
     public Race solarRace;
     public Race lunarRace;
     public Race ascendantRace;
@@ -16,4 +18,28 @@ public class PlayerCharacterSettings : ScriptableObject
     [Header("Map and Upgrades")]
     public Race[] astralMapRaces = new Race[8];
     public Upgrade[] possiblePermanentUpgrades;
+
+    [Header("Augments")]
+    public AugmentOption[] augmentsPicked = new AugmentOption[8];
+
+    public void LoadData(){
+        //carregar cristais
+        
+    }
+
+    public void SetupCharacter(){
+        coins = 0;
+        ResetAugments();
+        //setar vida
+    }
+
+    public void ResetAugments(){
+        if(possibleRaces == null) return;
+        for (int i = 0; i < possibleRaces.Length; i++)
+        {
+            possibleRaces[i].ResetAugments();
+        }
+        augmentsPicked = new AugmentOption[8];
+    }
+
 }

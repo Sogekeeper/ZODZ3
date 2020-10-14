@@ -21,7 +21,7 @@ public class Race : ScriptableObject
 	public int constitution = 5;
 	public int spirit = 5;
 
-	public Upgrade raceUpgrade;
+	public AugmentOption[] augments;
 
 	[Header("Visual")]
 	//public Sprite characterPreview;//sem utilidade ainda
@@ -32,4 +32,14 @@ public class Race : ScriptableObject
 	public AnimationSet damageAnimations;
 	public AnimationClip deathAnim;
 	public AnimationDisplay displayAnimation;
+
+
+	public void ResetAugments(){
+		if(augments == null) return;
+        for (int i = 0; i < augments.Length; i++)
+        {
+            if(augments[i] == null) continue;
+            augments[i].ResetMultipliers();
+        }
+	}
 }

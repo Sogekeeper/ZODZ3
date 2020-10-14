@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    //OLD
+    //NOT USED ANYMORE
+
     public MapDestinationSettings mapDestination;
     public QuestController questController;
     public Map[] defaultMaps;

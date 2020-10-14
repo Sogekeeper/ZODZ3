@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "Questing/Quest Controller", order = 3)]
 public class QuestController : ScriptableObject
 {
     //OLD NÃO UTILIZADO

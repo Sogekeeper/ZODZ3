@@ -9,7 +9,7 @@ public class PowerPickup : MonoBehaviour
     public SpriteRenderer pickupRenderer;
     [Header("Optional Random PickUp")]
     public bool useRandomRace;
-    public Race[] possibleRaces;
+    public PlayerCharacterSettings playerCharacterSettings;    
 
     private void Start() {
         pickupCollider.enabled = true;
@@ -17,10 +17,10 @@ public class PowerPickup : MonoBehaviour
 
     public void UpdateToPossibleRace(){
         if(!useRandomRace) return;
-        int randomIndex = Random.Range(0,possibleRaces.Length);
-        randomIndex = randomIndex % possibleRaces.Length; //so pra ter certeza
-        raceToPickUp = possibleRaces[randomIndex];
-        pickupRenderer.sprite = possibleRaces[randomIndex].raceIcon;
+        int randomIndex = Random.Range(0,playerCharacterSettings.possibleRaces.Length);
+        randomIndex = randomIndex % playerCharacterSettings.possibleRaces.Length; //so pra ter certeza
+        raceToPickUp = playerCharacterSettings.possibleRaces[randomIndex];
+        pickupRenderer.sprite = playerCharacterSettings.possibleRaces[randomIndex].raceIcon;
     }
     
     public void PickingUp(AbilityToInteract actor){
