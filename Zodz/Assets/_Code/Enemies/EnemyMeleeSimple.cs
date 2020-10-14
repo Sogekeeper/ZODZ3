@@ -25,7 +25,7 @@ public class EnemyMeleeSimple : MonoBehaviour
     protected void Start() {
         chase = GetComponent<AIChaseBehaviour>();
         layerMask = 1 << LayerMask.NameToLayer("Level");
-        currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform,false,layerMask);
+        currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform, skillUser.userStats, false,layerMask);
         StartCoroutine(CheckIfTargetWithinRange());        
     }
 
@@ -36,7 +36,7 @@ public class EnemyMeleeSimple : MonoBehaviour
 
     protected virtual IEnumerator CheckIfTargetWithinRange(){ 
         while(true){
-            currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform,false,layerMask);
+            currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform, skillUser.userStats,false,layerMask);
             if(!skillUser.usingSkill){
                 if(currentTarget 
                     && Vector2.Distance(transform.position, currentTarget.position) < rangeToChase

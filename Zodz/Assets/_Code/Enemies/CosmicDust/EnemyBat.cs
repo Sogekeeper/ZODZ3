@@ -32,7 +32,7 @@ public class EnemyBat : MonoBehaviour
         chase = GetComponent<AIChaseBehaviour>();
         layerMask = 1 << LayerMask.NameToLayer("Level");
         initialPoint = transform.position;
-        currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform,false,layerMask);
+        currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform,skillUser.userStats, false,layerMask);
         moveTimer = timeToMoveAgain;
         attackTimer = timeToAttackAgain;
         StartCoroutine(CheckIfTargetWithinRange());
@@ -124,7 +124,7 @@ public class EnemyBat : MonoBehaviour
 
     protected virtual IEnumerator CheckIfTargetWithinRange(){ 
         while(true){
-            currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform,false,layerMask);
+            currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform, skillUser.userStats, false,layerMask);
             if(!skillUser.usingSkill && currentTarget){
                 if(Vector2.Distance(transform.position, currentTarget.position) < rangeToFight){
                     attacking = true;

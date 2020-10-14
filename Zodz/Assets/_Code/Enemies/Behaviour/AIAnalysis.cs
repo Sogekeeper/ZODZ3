@@ -39,12 +39,13 @@ public class AIAnalysis
         return null;
     }
 
-    public static Transform GetClosestEnemy(List<EntityRuntimeSet> targetEntities, Transform origin, bool ignoreWalls = true, int layerValue =-1){
+    public static Transform GetClosestEnemy(List<EntityRuntimeSet> targetEntities, Transform origin, EntityStats thisEntity = null, bool ignoreWalls = true, int layerValue =-1){
         Transform result = null;
         float currentDistance = Mathf.Infinity;
         for(int i = 0; i < targetEntities.Count;i++){
             if(targetEntities[i].Items == null) continue;
             for(int y = 0; y < targetEntities[i].Items.Count; y++){
+                if(targetEntities[i].Items[y] == thisEntity) continue;
                 float dist = Vector2.Distance(origin.position, targetEntities[i].Items[y].transform.position);
                 if(!ignoreWalls && layerValue >= 0){
                     RaycastHit2D hit = Physics2D.Linecast(origin.position,targetEntities[i].Items[y].transform.position,layerValue);                   

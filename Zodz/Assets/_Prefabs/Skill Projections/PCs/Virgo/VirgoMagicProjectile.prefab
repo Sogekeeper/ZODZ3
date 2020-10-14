@@ -95,13 +95,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5b6b49957df894cac3437c3ec9b436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTeam: {fileID: 0}
+  hostileTo: []
   damageValue: 10
   knockbackForce: 0
   statesToApply:
-  - {fileID: 11400000, guid: 3e1668ddfcbd1f747a42fdefcd55db00, type: 2}
+  - {fileID: 11400000, guid: ae4f690d209a6cb42b4e075d1ee0c925, type: 2}
   owner: {fileID: 0}
-  manaReplenishAmount: 10
+  manaReplenishAmount: 0
+  skillType: 0
+  damageType: 0
   OnHitEntity:
     m_PersistentCalls:
       m_Calls: []
@@ -142,6 +144,11 @@ MonoBehaviour:
   rb: {fileID: 1214934905708700939}
   anim: {fileID: 1214934906339897321}
   col: {fileID: 1214934905708700938}
+  possibleStates:
+  - targetState: {fileID: 11400000, guid: ae4f690d209a6cb42b4e075d1ee0c925, type: 2}
+    chance: 0
+  - targetState: {fileID: 11400000, guid: 3e1668ddfcbd1f747a42fdefcd55db00, type: 2}
+    chance: 50
 --- !u!1 &1214934906339897322
 GameObject:
   m_ObjectHideFlags: 0

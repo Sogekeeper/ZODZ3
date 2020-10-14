@@ -67,7 +67,7 @@ public class LeoDaddy : EnemyMeleeSimple
 
     protected override IEnumerator CheckIfTargetWithinRange(){ 
         while(true){
-            currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform,false,layerMask);
+            currentTarget = AIAnalysis.GetClosestEnemy(skillUser.userStats.enemyEntitySets,transform,skillUser.userStats,false,layerMask);
             if(!skillUser.usingSkill && !goingRanged){
                 if(currentTarget 
                     && Vector2.Distance(transform.position, currentTarget.position) < rangeToChase

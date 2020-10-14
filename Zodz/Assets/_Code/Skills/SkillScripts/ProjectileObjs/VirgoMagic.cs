@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class VirgoMagic : ProjectileObject
 {
+    [System.Serializable]
+    public class PossibleState{
+        public State targetState;
+        public float chance;
+    }
+
     public float travelSpeed = 10f;
     public float timeToFade = 0.8f;
     public float knockback = 1;
@@ -12,6 +18,8 @@ public class VirgoMagic : ProjectileObject
     public Rigidbody2D rb;
     public Animator anim;
     public Collider2D col;
+
+    public PossibleState[] possibleStates;
 
     private float fadeTimer;
     private bool moving = true;
@@ -45,6 +53,7 @@ public class VirgoMagic : ProjectileObject
         moving = false;
         fadeTimer = 0;
         enemiesAlreadyHit.Clear();
+        RollStateToApply();
         projectileDamageSource.damageValue = (int)(Random.Range(user.userStats.mind.Value-1,user.userStats.mind.Value+2) * mindMultiplier);
         projectileDamageSource.hostileTo = user.userStats.enemyEntitySets;
         projectileDamageSource.owner = user.userStats;
@@ -66,6 +75,18 @@ public class VirgoMagic : ProjectileObject
             anim.Play("Impact",0,0);
             //moving = false;
             //col.enabled = false;
+        }
+    }
+
+    private void RollStateToApply(){
+        float chanceRoll = Random.Range(0,100);
+        for (int i = 0; i < possibleStates.Length; i++)
+        {
+            if(possibleStates[i].chance >= chanceRoll){
+                projectileDamageSource.statesToApply = new State[1];
+                projectileDamageSource.statesToApply[1] = possibleStates[i].targetState;
+                return;
+            }
         }
     }
 }

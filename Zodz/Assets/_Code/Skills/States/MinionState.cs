@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "State_MinionState", menuName = "States/Minion State", order = 5)]
 public class MinionState : State
 {
     //Inimigo afetado vai atacar outros inimigos
