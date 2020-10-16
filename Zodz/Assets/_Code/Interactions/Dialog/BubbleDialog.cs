@@ -51,7 +51,7 @@ public class BubbleDialog : MonoBehaviour
 
   private IEnumerator waitToMove()
   {
-    yield return new WaitForSeconds(timeStopped);
+    yield return new WaitForSeconds(timeStopped-0.2f);
     canMove = true;
   }
 

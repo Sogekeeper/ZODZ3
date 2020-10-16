@@ -22,6 +22,9 @@ public class PlayerCharacterSettings : ScriptableObject
     [Header("Augments")]
     public AugmentOption[] augmentsPicked = new AugmentOption[8];
 
+    public bool lifeSet{get;private set;}
+    public int currentLife{get;private set;}
+
     public void LoadData(){
         //carregar cristais
         
@@ -30,7 +33,14 @@ public class PlayerCharacterSettings : ScriptableObject
     public void SetupCharacter(){
         coins = 0;
         ResetAugments();
+        astralMapRaces = new Race[8];
+        lifeSet = false;
         //setar vida
+    }
+
+    public void SetLife(int current){
+        currentLife = current;
+        lifeSet = true;
     }
 
     [ContextMenu("DEBUG - Reset Augments Only")]
@@ -48,6 +58,7 @@ public class PlayerCharacterSettings : ScriptableObject
         ResetAugments();
         astralMapRaces = new Race[8];
         crystals = 0;
+        lifeSet = false;
         coins = 0;
         augmentsPicked = new AugmentOption[8];
     }

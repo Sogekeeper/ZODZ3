@@ -70,11 +70,22 @@ public class PlayerStats : EntityStats
 
     protected override void Start() {
         base.Start();
+        if(characterSettings.lifeSet){
+            currentLife = characterSettings.currentLife;
+            if(currentLife > totalLife.Value)
+                currentLife = (int)totalLife.Value;
+        }
         if(solarRace){
             skillUser.ReplaceIdleAnimationSet(solarRace.idleAnimations);
             skillUser.ReplaceWalkAnimationSet(solarRace.runningAnimations);
             skillUser.ReplaceDamageAnimation(solarRace.damageAnimations);
         }
+        characterSettings.SetLife(currentLife);
+    }
+
+    private void OnDisable() {
+        if(currentLife > 0)
+            characterSettings.SetLife(currentLife);
     }
 
     protected override void Update() {
@@ -197,6 +208,7 @@ public class PlayerStats : EntityStats
                 ApplyState(characterSettings.possiblePermanentUpgrades[i]);
             }
         }
+        characterSettings.SetLife(currentLife);
     }
     private void ApplyAllPermanentUpgrades(){
         for(int i = 0; i < characterSettings.possiblePermanentUpgrades.Length;i++){

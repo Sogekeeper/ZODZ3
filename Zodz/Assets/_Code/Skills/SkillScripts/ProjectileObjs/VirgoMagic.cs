@@ -84,7 +84,7 @@ public class VirgoMagic : ProjectileObject
         {
             if(possibleStates[i].chance >= chanceRoll){
                 projectileDamageSource.statesToApply = new State[1];
-                projectileDamageSource.statesToApply[1] = possibleStates[i].targetState;
+                projectileDamageSource.statesToApply[0] = possibleStates[i].targetState;
                 return;
             }
         }
