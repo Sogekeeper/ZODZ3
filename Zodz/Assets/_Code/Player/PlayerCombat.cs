@@ -6,8 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerCombat : MonoBehaviour
 {
     public bool canInput = true;
+    public bool canUseMagic = true;
+    public bool canUseUltimate = true;
     public void CanInput(bool inputsAllowed){canInput = inputsAllowed;} //pra unity eventos
-    
+    public void CanUseMagic(bool inputsAllowed){canUseMagic = inputsAllowed;} //pra unity eventos
+    public void CanUseUltimate(bool inputsAllowed){canUseUltimate = inputsAllowed;} //pra unity eventos
+
     public SkillUser skillUser;
     public PlayerStats playerStats;
 
@@ -37,7 +41,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
     public void UseMagicSkill(InputAction.CallbackContext context){
-        if(context.performed && !skillUser.usingSkill && canInput && Time.timeScale > 0){
+        if(context.performed && !skillUser.usingSkill && canInput && Time.timeScale > 0 && canUseMagic){
             if(playerStats.GetSkillCooldown(playerStats.selectedMagicSkill) <= 0
                 && skillUser.userStats.currentMana >= playerStats.selectedMagicSkill.skillCost){
                skillUser.InitializeSkill(playerStats.selectedMagicSkill);
@@ -45,7 +49,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
     public void UseUltimateSkill(InputAction.CallbackContext context){
-        if(context.performed && !skillUser.usingSkill && canInput && Time.timeScale > 0){
+        if(context.performed && !skillUser.usingSkill && canInput && Time.timeScale > 0 && canUseUltimate){
             if(playerStats.GetSkillCooldown(playerStats.solarRace.ultimateSkill) <= 0
                 && skillUser.userStats.currentMana >= playerStats.solarRace.ultimateSkill.skillCost){
                skillUser.InitializeSkill(playerStats.solarRace.ultimateSkill);

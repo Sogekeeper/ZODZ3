@@ -83,7 +83,8 @@ public class PlayerStats : EntityStats
         characterSettings.SetLife(currentLife);
     }
 
-    private void OnDisable() {
+    protected override void OnDisable() {
+        base.OnDisable();
         if(currentLife > 0)
             characterSettings.SetLife(currentLife);
     }

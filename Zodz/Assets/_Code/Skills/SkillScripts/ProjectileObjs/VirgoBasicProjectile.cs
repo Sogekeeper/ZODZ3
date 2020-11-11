@@ -15,6 +15,11 @@ public class VirgoBasicProjectile : ProjectileObject
     private float fadeTimer;
     private bool moving = true;
     private float currentSpeed;
+    private int levelLayer;
+
+    private void Start() {
+        levelLayer = LayerMask.NameToLayer("Level");
+    }
     
     private void Update() {
         if(moving){
@@ -48,7 +53,7 @@ public class VirgoBasicProjectile : ProjectileObject
 
     private void OnTriggerEnter2D(Collider2D other) {
         EntityStats entityStats = other.GetComponent<EntityStats>();        
-        if((entityStats && EntityRuntimeSet.DetectArrayOverlap(projectileDamageSource.hostileTo,entityStats.myEntitySets)) || (!entityStats)){
+        if((entityStats && EntityRuntimeSet.DetectArrayOverlap(projectileDamageSource.hostileTo,entityStats.myEntitySets)) || (other.gameObject.layer == levelLayer)){
             //gameObject.SetActive(false);
             anim.Play("Impact",0,0);
             moving = false;

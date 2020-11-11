@@ -23,6 +23,7 @@ public class StartGameController : MonoBehaviour
 	public void StartGame()
 	{
 		worldSettings.InitializeWorld(PlayerRaceChoice.playerRaceChoice.startingLocation);
+		playerCharacterSettings.DebugResetCharacter();
 		playerCharacterSettings.SetupCharacter();
 		SceneManager.LoadScene(startSceneName);
 	}

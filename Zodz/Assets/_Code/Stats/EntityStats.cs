@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Hellmade.Sound;
+using MilkShake;
 
 public class EntityStats : MonoBehaviour
 {
@@ -50,10 +51,15 @@ public class EntityStats : MonoBehaviour
     public SpriteRenderer entityGraphic;
 
     [Header("Optional")]
-    public Animator anim;
+    public Animator anim;    
     public AudioClip takeDamageSound;
     public AudioClip deathSound;
+    public ShakePreset onFallDamageShake;
     
+    private Vector3 lastGroundPos;
+    private Vector3 originalScale;
+    private int holeLayer;
+
     public bool canMove{
         get{
             if(stunned || downTimer > 0){
@@ -87,8 +93,13 @@ public class EntityStats : MonoBehaviour
     public void ToggleMoveAndAct(bool active){CanMove(active);CanAct(active);}
 
     [Header("Other Info")]
+    public bool recoverFall = false;
     public bool knockbackImmune = false;
     public bool stunned = false;
+    public bool airBorne = false;
+    public bool startWithMana = false;
+    public bool falling{get; private set;}
+    public bool closeToFallArea {get; private set;}
     public float downTimer {get; private set;}
     [Header("States")]
     public List<State.StateStack> states;
@@ -101,9 +112,14 @@ public class EntityStats : MonoBehaviour
         mind = new CharacterStat(baseMind);
         spirit = new CharacterStat(baseSpirit);
         constitution = new CharacterStat(baseConstitution);
+        originalScale = transform.localScale;
+        holeLayer = LayerMask.NameToLayer("Hole");
+        
+        falling = false;
+        closeToFallArea = false;
     }
     
-    private void OnEnable() {
+    protected virtual void OnEnable() {
         if(myEntitySets != null){
             for(int i = 0; i < myEntitySets.Count; i++){
                 myEntitySets[i].Add(this);
@@ -113,7 +129,7 @@ public class EntityStats : MonoBehaviour
         originalMySets = EntityRuntimeSet.CopySetArray(myEntitySets);
         originalEnemySets = EntityRuntimeSet.CopySetArray(enemyEntitySets);
     }
-    private void OnDisable() {
+    protected virtual void OnDisable() {
         if(myEntitySets != null){
             for(int i = 0; i < myEntitySets.Count; i++){
                 myEntitySets[i].Remove(this);
@@ -122,8 +138,10 @@ public class EntityStats : MonoBehaviour
     }
 
     protected virtual void Start() {        
-        currentLife = (int)totalLife.Value;      
-        currentMana = (int)totalMana.Value;        
+        currentLife = (int)totalLife.Value;
+        currentMana = startWithMana ? (int)totalMana.Value : 0;
+        lastGroundPos = transform.position;
+        StartCoroutine(GroundedRoutine());
     }
 
     protected virtual void Update() {
@@ -134,6 +152,15 @@ public class EntityStats : MonoBehaviour
             if(downTimer <=0 && anim && canAct){
                 anim.SetBool("down",false);
             }
+        }
+    }
+
+    private IEnumerator GroundedRoutine(){
+        while(true){
+            if(!airBorne && !closeToFallArea && !Physics2D.BoxCast(transform.position,new Vector2(1f,1f),0,Vector2.zero,0,holeLayer)){
+                if(canAct && canMove)lastGroundPos = transform.position;
+            }
+            yield return new WaitForSeconds(0.6f);
         }
     }
 
@@ -218,6 +245,31 @@ public class EntityStats : MonoBehaviour
         else if(currentMana > (int)totalMana.Value) currentMana = (int)totalMana.Value;
     }
 
+    public void Fall(){
+        //tocar animacao
+        falling = true;
+        CanMove(false);
+        CanAct(false);
+        LeanTween.scale(gameObject,transform.localScale*0.8f,0.2f).setOnComplete(FallCallbackDamage);
+    }
+    public void FallCallbackDamage(){        
+        if(anim){
+            anim.Play("Fall");
+        }
+        if(onFallDamageShake) Shaker.ShakeAll(onFallDamageShake);
+        TakeDamage((int)(totalLife.Value * 0.10f));
+        if(!recoverFall) Die();   
+    }
+    public void FallCallbackReposition(){
+        if(currentLife<=0) return;
+        //anim.Play("Movement");
+        transform.localScale = originalScale;
+        transform.position = lastGroundPos;
+        CanMove(true);
+        CanAct(true);
+        falling = false;
+    }
+
     protected virtual void Die(){
         OnDeath?.Invoke();
         if(deathSound) EazySoundManager.PlaySound(deathSound,0.4f);
@@ -261,8 +313,21 @@ public class EntityStats : MonoBehaviour
     private void StartDownTime(){
         downTimer = recoveryTime;
         if(anim){
-            anim.Play("Damage",0,0); //mudar para hash por performance
+            anim.ResetTrigger("dmg");
+            anim.SetTrigger("dmg");
             anim.SetBool("down",true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(CompareTag("Hole")){
+            closeToFallArea = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(CompareTag("Hole")){
+            closeToFallArea = false;
         }
     }
 }

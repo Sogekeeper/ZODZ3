@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
   public float moveSpeed = 4f;
+  public bool canInput = true;
 
   [Header("Dash Settings")]
   public float dashSpeed = 8f;
@@ -30,12 +31,14 @@ public class PlayerMovement : MonoBehaviour
   private int playerLayer;
   private int damageLayer;
   private int enemyLayer;
+  private int holeLayer;
   private float dashTimer = 0;  
 
   private void Start() {
     playerLayer = LayerMask.NameToLayer("Player");
     damageLayer = LayerMask.NameToLayer("Damage");
     enemyLayer = LayerMask.NameToLayer("Enemies");
+    holeLayer = LayerMask.NameToLayer("Hole");
   }
 
   private void FixedUpdate() {
@@ -68,12 +71,13 @@ public class PlayerMovement : MonoBehaviour
   }
 
   public void SetMovementInput(InputAction.CallbackContext context){
-    movementDirection = context.ReadValue<Vector2>().normalized;    //input do jogador
-    if(!skillUser.userStats.canMove) return;    
+    if(canInput)movementDirection = context.ReadValue<Vector2>().normalized;    //input do jogador
+    else movementDirection = Vector2.zero;
+    //if(!skillUser.userStats.canMove) return;    
   }
 
   public void Dash(InputAction.CallbackContext context){
-    if(context.performed && dashTimer <= 0){//button down
+    if(context.performed && dashTimer <= 0 && !skillUser.usingSkill && skillUser.userStats.canMove && canInput){//button down
       StartCoroutine(DashRoutine());
       StartCoroutine(IFramesRoutine());
       dashTimer = dashCooldown;
@@ -107,22 +111,26 @@ public class PlayerMovement : MonoBehaviour
   }
 
   public IEnumerator DashRoutine(){
-    dashing = true;
+    dashing = true; skillUser.userStats.airBorne =true;
     moveAnimOutput.SetBool("dashing",dashing);
     Physics2D.IgnoreLayerCollision(playerLayer,damageLayer,true);
     Physics2D.IgnoreLayerCollision(playerLayer,enemyLayer,true);
+    Physics2D.IgnoreLayerCollision(playerLayer,holeLayer,true);
     dashDirection = new Vector2(movementDirection.x, movementDirection.y);
     yield return new WaitForSeconds(dashTime);
-    dashing = false;
+    dashing = false; skillUser.userStats.airBorne =false;
     moveAnimOutput.SetBool("dashing",dashing);
     Physics2D.IgnoreLayerCollision(playerLayer,damageLayer,false);
     Physics2D.IgnoreLayerCollision(playerLayer,enemyLayer,false);
+    Physics2D.IgnoreLayerCollision(playerLayer,holeLayer,false);
   }
   public IEnumerator IFramesRoutine(){
     //int currentFrame = 0;
     Physics2D.IgnoreLayerCollision(playerLayer,damageLayer, true);
+    Physics2D.IgnoreLayerCollision(playerLayer,holeLayer, true);
     yield return new WaitForSeconds(dashIFramesTime);
     Physics2D.IgnoreLayerCollision(playerLayer,damageLayer, false);
+    Physics2D.IgnoreLayerCollision(playerLayer,holeLayer, false);
   }
 
 }

@@ -47,7 +47,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0022448301, y: -0.0038814545}
   m_SpriteTilingProperty:
@@ -95,12 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5b6b49957df894cac3437c3ec9b436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTeam: {fileID: 0}
+  hostileTo: []
   damageValue: 10
   knockbackForce: 0
   statesToApply: []
   owner: {fileID: 0}
   manaReplenishAmount: 10
+  skillType: 0
+  damageType: 0
   OnHitEntity:
     m_PersistentCalls:
       m_Calls: []

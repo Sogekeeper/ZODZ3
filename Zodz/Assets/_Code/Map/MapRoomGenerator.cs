@@ -67,6 +67,7 @@ public class MapRoomGenerator : MonoBehaviour
         decoration.ClearPointers();
         currentDeco = decoration;
         //configurando portas
+        if(decoration.doors == null) decoration.doors = new MapDoor[0];
         for(int i = 0; i < decoration.doors.Length;i++){
             decoration.doors[i].SetLocked(true);
             decoration.doors[i].SetupDoor(this,GetRandomReward());
@@ -76,6 +77,7 @@ public class MapRoomGenerator : MonoBehaviour
         MapEnemySet targetSet = currentRoomIndex <= (float)globalMapSettings.numberOfRooms/2 ? 
             globalMapSettings.startEnemySet : globalMapSettings.endEnemySet;
 
+        if(decoration.pointers == null) decoration.pointers = new MapPointer[0];
         for(int i = 0; i < decoration.pointers.Length; i++){
             MapPointer randomPointer = decoration.GetRandomAvailablePointer();
             //verifica todos inimigos possiveis para esse ponto e pega um aleatorio
@@ -136,7 +138,7 @@ public class MapRoomGenerator : MonoBehaviour
     private void ProcessQuestRooms(){
         for(int i = 0; i < questGroups.Length;i++){
             for(int y = 0; y < questGroups[i].quests.Count; y++){
-                ProcessMission(questGroups[i].quests[y].GetCurrentMission());
+                if(questGroups[i].quests[y].GetCurrentMission())ProcessMission(questGroups[i].quests[y].GetCurrentMission());
             }
         }
         if(globalMapSettings.numberOfRooms <= questRooms.Count){//quase impossivel

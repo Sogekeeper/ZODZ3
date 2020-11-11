@@ -153,11 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 0.99264705, g: 0.021896647, b: 0.021896647, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 1}
   needBoxIndicator: 1
   needArrowIndicator: 1
   needDistanceText: 0
-  rotateArrowIndicator: 1
+  rotateArrowIndicator: 0
   indicator: {fileID: 0}
 --- !u!23 &358822575
 MeshRenderer:
@@ -331,11 +331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 0.19999993, g: 1, b: 0, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 1}
   needBoxIndicator: 1
   needArrowIndicator: 1
   needDistanceText: 0
-  rotateArrowIndicator: 1
+  rotateArrowIndicator: 0
   indicator: {fileID: 0}
 --- !u!23 &825745129
 MeshRenderer:
@@ -554,11 +554,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 1, g: 0.8097363, b: 0.014705896, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 1}
   needBoxIndicator: 1
   needArrowIndicator: 1
   needDistanceText: 0
-  rotateArrowIndicator: 1
+  rotateArrowIndicator: 0
   indicator: {fileID: 0}
 --- !u!23 &1456991377
 MeshRenderer:
@@ -761,11 +761,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 0.034482475, g: 0, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 1}
   needBoxIndicator: 1
   needArrowIndicator: 1
   needDistanceText: 0
-  rotateArrowIndicator: 1
+  rotateArrowIndicator: 0
   indicator: {fileID: 0}
 --- !u!23 &1925120178
 MeshRenderer:
@@ -1049,6 +1049,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210937049777272233, guid: 3beb97a3ecc5e1b46881ed04a108c7a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210937050121991620, guid: 3beb97a3ecc5e1b46881ed04a108c7a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3beb97a3ecc5e1b46881ed04a108c7a1, type: 3}

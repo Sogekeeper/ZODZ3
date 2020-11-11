@@ -12,6 +12,18 @@ public class EazyMusicPlayer : MonoBehaviour
     public bool playerOnStart = true;
 
     private void Start(){
-        EazySoundManager.PlayMusic(targetMusic,relativeVolume,looping,persist);
+        if(playerOnStart)EazySoundManager.PlayMusic(targetMusic,relativeVolume,looping,persist);
+    }
+
+    public void Pause(){
+        EazySoundManager.PauseAllMusic();
+    }
+
+    public void Resume(){
+        EazySoundManager.ResumeAllMusic();
+    }
+
+    public void Stop(){
+        EazySoundManager.StopAllMusic();
     }
 }

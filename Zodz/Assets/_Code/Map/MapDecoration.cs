@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapDecoration : MonoBehaviour
 {
     public Transform playerSpawn;
+    public Transform doorsPosition;
     public MapDoor[] doors;
     public MapPointer[] pointers;
 

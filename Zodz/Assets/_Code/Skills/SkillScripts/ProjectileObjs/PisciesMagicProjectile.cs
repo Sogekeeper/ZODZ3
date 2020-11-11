@@ -24,6 +24,11 @@ public class PisciesMagicProjectile : ProjectileObject
     private bool moving = true;
     private float currentSpeed;
     private EntityStats victim = null;
+    private int levelLayer;
+
+    private void Awake() {
+        levelLayer = LayerMask.NameToLayer("Level");
+    }
 
     private void Update() {
         if(moving){
@@ -92,7 +97,7 @@ public class PisciesMagicProjectile : ProjectileObject
             anim.Play("Locked",0,0);
             moving = false;
             col.enabled = false;
-        }else if(!entityStats){
+        }else if(other.gameObject.layer == levelLayer){
             gameObject.SetActive(false);
             moving = false;
             col.enabled = false;

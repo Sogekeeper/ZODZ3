@@ -30,47 +30,92 @@ public class BubbleDialogSequence : MonoBehaviour
 
   // private AbilityToInteract whoInitializedDialog;
   private bool dialogDone = false;
+  private bool dialogBegan= false;
+  private int currentDialogIndex = 0;
+  private float dialogTimer;
+  private AbilityToInteract actor = null;
+  private BubbleDialog currentBubble = null;
+
+  private float offsetTimer = 0.6f; //para dar tempo do texto subir, precisa ser private pq não quero que seja alterado
 
   public void StartSequence(AbilityToInteract abilityToInteract)
   {
-		if (!dialogDone)
-    	StartCoroutine(SpawnTexts(abilityToInteract));
+    if(dialogBegan) return;
+    if((!repeatOnCall && dialogDone)) return;
+
+    dialogBegan = true;
+    currentDialogIndex = 0;
+    actor = abilityToInteract;
+    	ProgressDialog();
 
   }
   public void StartSequence() //para cutscenes onde o jogador não interage manualmente
   {
-    if (!dialogDone)
-      StartCoroutine(SpawnTexts(null));
+    if(dialogBegan) return;
+    if((!repeatOnCall && dialogDone)) return;
+
+    dialogBegan = true;
+    currentDialogIndex = 0;
+    actor = null;
+      ProgressDialog();
   }
 
-  IEnumerator SpawnTexts(AbilityToInteract actor)
-  {
-    for (int i = 0; i < texts.Length; i++)
-    {
-      if (texts[i].isFromActor && actor != null)
-      {
-        SpawnBubbleOn(texts[i].bubbleText,actor.transform, texts[i].timeToReadLine);
+  private void Update() {
+    if(dialogTimer > 0){
+      dialogTimer -= Time.deltaTime;
+      if(dialogTimer <= 0){
+        ProgressDialog();
       }
-      else
-      {
-				if(conversationMembers != null && conversationMembers.Length > texts[i].targetMemberIndex
-					&& texts[i].targetMemberIndex >= 0 && conversationMembers[texts[i].targetMemberIndex]){
-					SpawnBubbleOn(texts[i].bubbleText,conversationMembers[texts[i].targetMemberIndex],texts[i].timeToReadLine);
-				}else{
-					SpawnBubbleOn(texts[i].bubbleText,transform,texts[i].timeToReadLine);
-				}
-      }
-
-      yield return new WaitForSeconds(texts[i].timeToReadLine+0.5f); //offset pro prox text aparecer
     }
-    OnDialogEnd?.Invoke();
-    dialogDone = true;
   }
 
-	private void SpawnBubbleOn(string dialogText,Transform target, float readTime){
+  public void SkipLine(){
+    //acabar timer e 
+    if(dialogTimer > offsetTimer){
+      dialogTimer = offsetTimer;
+      currentBubble?.SkipReadTime();
+    } 
+  }
+
+  private void ProgressDialog(){
+    if(currentDialogIndex >= texts.Length){
+      OnDialogEnd?.Invoke();
+      dialogDone = true;
+      dialogBegan = false;
+      currentBubble = null;
+      return;
+    }
+
+    if (texts[currentDialogIndex].isFromActor && actor != null)
+    {
+      SpawnBubbleOn(texts[currentDialogIndex].bubbleText,actor.transform, texts[currentDialogIndex].timeToReadLine);
+    }
+    else
+    {
+			if(conversationMembers != null && conversationMembers.Length > texts[currentDialogIndex].targetMemberIndex
+				&& texts[currentDialogIndex].targetMemberIndex >= 0 && conversationMembers[texts[currentDialogIndex].targetMemberIndex]){
+				SpawnBubbleOn(texts[currentDialogIndex].bubbleText,conversationMembers[texts[currentDialogIndex].targetMemberIndex],texts[currentDialogIndex].timeToReadLine);
+			}else{
+				SpawnBubbleOn(texts[currentDialogIndex].bubbleText,transform,texts[currentDialogIndex].timeToReadLine);
+			}
+    }
+
+    currentDialogIndex++;
+    if(currentDialogIndex == texts.Length){
+      dialogTimer = texts[currentDialogIndex-1].timeToReadLine + offsetTimer;
+    }else{
+      dialogTimer = texts[currentDialogIndex-1].timeToReadLine + offsetTimer;      
+    }
+
+  }
+
+
+	private BubbleDialog SpawnBubbleOn(string dialogText,Transform target, float readTime){
 		BubbleDialog b = bubblePool.SpawnTargetObject(bubbleObj,3).GetComponent<BubbleDialog>();
 		b.transform.position = target.transform.position + new Vector3(0,bubbleOffsetY,0);
 		b.InitBubble(dialogText,readTime);
+    currentBubble = b;
+    return b;
 	}
 
 }

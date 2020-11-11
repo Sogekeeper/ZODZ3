@@ -27,7 +27,7 @@ public class AddStateToAttacks : State
 
     public override void OnDealDamage(EntityStats dealer, EntityStats target, DamageSource damageInfo = null){
         if((damageInfo != null && damageInfo.skillType == onlyForTypeAttacks) || onlyForTypeAttacks == SkillType.None)
-            target.ApplyState(stateToApply);
+            target.ApplyState(stateToApply,dealer);
     }
 
     public override void ConcludeState(EntityStats receiver){

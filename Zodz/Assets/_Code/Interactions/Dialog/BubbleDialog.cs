@@ -16,10 +16,25 @@ public class BubbleDialog : MonoBehaviour
 	public RectTransform textPanel; //quadrado ou imagem atrás do texto
 	public float spacingX = 50;
 	public float spacingY;
+  public Vector3 originalScale;
 
   private bool canMove;
   private float fadeTimer;
   private float timeStopped;
+  private float originalUpSpeed;
+
+
+  [ContextMenu("Set Original Scale")]private void SetOriginalScale(){ originalScale = transform.localScale;}
+
+  private void Awake() {
+    originalUpSpeed = upSpeed;
+  }
+
+  private void OnEnable() {
+    upSpeed = originalUpSpeed;
+    transform.localScale = originalScale/3;
+    transform.LeanScale(originalScale,0.3f).setEaseOutBack();
+  }
 
   private void Update()
   {
@@ -37,6 +52,7 @@ public class BubbleDialog : MonoBehaviour
   public void InitBubble(string textToDisplay,float timeToRead)
   {
     StopAllCoroutines();
+    upSpeed = originalUpSpeed;
 		fadeTimer = timeTilFade + timeToRead;
 		canMove = false;
 		anim.Play("Idle",0,0);
@@ -51,8 +67,18 @@ public class BubbleDialog : MonoBehaviour
 
   private IEnumerator waitToMove()
   {
-    yield return new WaitForSeconds(timeStopped-0.2f);
+    yield return new WaitForSeconds(Mathf.Max(timeStopped,0.01f));
+    StartToMove();
+  }
+
+  public void SkipReadTime(){
+    StopAllCoroutines();
+    StartToMove();
+  }
+  private void StartToMove(){
     canMove = true;
+    upSpeed = LeanTween.easeInSine(upSpeed,upSpeed*2f,0.4f);
+    //transform.LeanScale(originalScale*0.9f,0.6f).setEaseInSine();
   }
 
   public void EndBubble(){
