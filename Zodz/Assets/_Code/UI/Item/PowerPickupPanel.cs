@@ -22,7 +22,7 @@ public class PowerPickupPanel : MonoBehaviour
     }
 
     public void UpdatePowerPickupPanel(){
-        //skillText.text = "Unlock\n"
+        //skillText.text = "<align="center">Unlock\n<align="left">"+pickup.raceToPickUp.magicSkill.skillName+": "+pickup.raceToPickUp.magicSkill.skillShortDescription;
         bool playerHasRace = false;
         for (int i = 0; i < player.astralMapRaces.Length; i++)
         {
