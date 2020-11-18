@@ -8,6 +8,9 @@ public class Target : MonoBehaviour
 {
     [Tooltip("Change this color to change the indicators color for this target")]
     [SerializeField] private Color targetColor = Color.red;
+    
+    [Tooltip("Select a replacer for the image sprite")]
+    [SerializeField] private Sprite targetSprite = null;
 
     [Tooltip("Select if box indicator is required for this target")]
     [SerializeField] private bool needBoxIndicator = true;
@@ -35,6 +38,12 @@ public class Target : MonoBehaviour
         get
         {
             return targetColor;
+        }
+    }
+
+    public Sprite TargetSprite{
+        get{
+            return targetSprite;
         }
     }
 

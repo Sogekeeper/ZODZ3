@@ -49,6 +49,15 @@ public class Indicator : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets the image sprite for the indicator.
+    /// </summary>
+    /// <param name="targetSprite"></param>
+    public void SetImageSprite(Sprite targetSprite)
+    {
+        indicatorImage.sprite = targetSprite;
+    }
+
+    /// <summary>
     /// Sets the distance text for the indicator.
     /// </summary>
     /// <param name="value"></param>

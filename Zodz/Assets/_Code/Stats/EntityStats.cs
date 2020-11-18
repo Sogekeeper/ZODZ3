@@ -10,8 +10,6 @@ public class EntityStats : MonoBehaviour
     [Header("Base Stats")]
     public Race baseRace;
     // CharacterStat precisa ser criado por script, entao aqui fica a base pra digitar no inspector
-    public int baseLife;
-    public int baseMana;
     public int baseStrength;
     public int baseMind;
     public int baseConstitution;
@@ -106,12 +104,12 @@ public class EntityStats : MonoBehaviour
 
     protected virtual void Awake() {
         states = new List<State.StateStack>();
-        totalLife = new CharacterStat(baseLife);
-        totalMana = new CharacterStat(baseMana);
         strength = new CharacterStat(baseStrength);
         mind = new CharacterStat(baseMind);
         spirit = new CharacterStat(baseSpirit);
         constitution = new CharacterStat(baseConstitution);
+        totalLife = new CharacterStat(Formulas.CalculateLifePoints((int)constitution.Value));
+        totalMana = new CharacterStat(Formulas.CalculateManaPoints((int)spirit.Value));
         originalScale = transform.localScale;
         holeLayer = LayerMask.NameToLayer("Hole");
         
@@ -167,12 +165,14 @@ public class EntityStats : MonoBehaviour
     #region STATES
     public void ApplyState(State targetState, EntityStats applier = null){
         targetState.InitState(this,applier);
+        UpdateMaxLifeAndMana();
         OnStatesUpdate?.Invoke(this);
     }
     public bool RemoveState(State targetState){
         State.StateStack stack = GetStack(targetState);
         if(stack == null) return false;
         stack.EndState(this);
+        UpdateMaxLifeAndMana();
         return true;
     }
 
@@ -273,6 +273,19 @@ public class EntityStats : MonoBehaviour
     protected virtual void Die(){
         OnDeath?.Invoke();
         if(deathSound) EazySoundManager.PlaySound(deathSound,0.4f);
+    }
+
+    protected virtual void UpdateMaxLifeAndMana(){
+        int previousMaxLife = (int)totalLife.Value;
+        int previousMaxMana = (int)totalMana.Value;
+        totalLife = new CharacterStat(Formulas.CalculateLifePoints((int)constitution.Value));
+        totalMana = new CharacterStat(Formulas.CalculateManaPoints((int)spirit.Value));
+        currentLife += (int)(totalLife.Value - previousMaxLife);
+        currentMana += (int)(totalMana.Value - previousMaxMana);
+        if(currentLife <= 0) currentLife = 1;
+        else if(currentLife > totalLife.Value) currentLife = (int)totalLife.Value;
+        if(currentMana <= 0) currentMana = 0;
+        else if(currentMana > totalMana.Value) currentMana = (int)totalMana.Value;
     }
 
     public void ApplyKnockback(Vector3 source, float force){

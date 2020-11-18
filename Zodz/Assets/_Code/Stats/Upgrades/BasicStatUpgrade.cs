@@ -35,6 +35,12 @@ public class BasicStatUpgrade : Upgrade
         if(targetType == StatType.MIND){
             receiver.mind.AddModifier(addedMod);
         }
+        if(targetType == StatType.CONSTITUTION){
+            receiver.constitution.AddModifier(addedMod);
+        }
+        if(targetType == StatType.SPIRIT){
+            receiver.spirit.AddModifier(addedMod);
+        }
     }
 
     public override void ConcludeState(EntityStats receiver)
@@ -45,6 +51,12 @@ public class BasicStatUpgrade : Upgrade
         }
         if(targetType == StatType.MIND){
             receiver.mind.RemoveAllModifiersFromSource(this);
+        }
+        if(targetType == StatType.CONSTITUTION){
+            receiver.constitution.RemoveAllModifiersFromSource(this);
+        }
+        if(targetType == StatType.SPIRIT){
+            receiver.spirit.RemoveAllModifiersFromSource(this);
         }
     }
 }

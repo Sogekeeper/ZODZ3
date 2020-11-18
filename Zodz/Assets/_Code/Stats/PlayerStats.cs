@@ -61,6 +61,7 @@ public class PlayerStats : EntityStats
             }
         }
 
+        
         selectedMagicSkill = characterSettings.astralMapRaces[0].magicSkill;
         selectedSkillIndex = 0;
 
