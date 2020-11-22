@@ -15,6 +15,9 @@ public class MultiMissionChecker : MonoBehaviour
     public MissionCheck[] missionChecks;
     public UnityEvent OnAllInvalid;
 
+    [Header("Debug")]
+    public int forceValidIndex = -1;
+
     private void Start() {
         if(checkOnStart){
             CheckAllMissions();
@@ -26,7 +29,7 @@ public class MultiMissionChecker : MonoBehaviour
 
         for (int i = 0; i < missionChecks.Length; i++)
         {
-            if(missionChecks[i].targetMission.isActive){
+            if(missionChecks[i].targetMission.isActive || i == forceValidIndex){
                 missionChecks[i].OnValid?.Invoke();
                 return;
             }

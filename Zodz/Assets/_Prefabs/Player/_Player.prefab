@@ -356,8 +356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRace: {fileID: 11400000, guid: 28ec612fb13bf0d44a756836a6270632, type: 2}
-  baseLife: 100
-  baseMana: 100
   baseStrength: 5
   baseMind: 5
   baseConstitution: 5
@@ -514,6 +512,9 @@ MonoBehaviour:
   canUseUltimate: 1
   skillUser: {fileID: 2907926627411028062}
   playerStats: {fileID: 2907926627411028000}
+  OnNotEnoughMana:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2907926627411028061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,12 +569,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2907926627411028002}
+        m_MethodName: SkipDialog
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 003c967d-d39f-4ed9-b9e7-17d86cc47870
     m_ActionName: PlayerCharacter/BasicSkill[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2907926627411028058}
         m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2907926627411028002}
+        m_MethodName: SkipDialog
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
