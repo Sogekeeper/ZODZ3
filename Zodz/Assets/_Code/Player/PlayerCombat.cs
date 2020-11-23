@@ -15,6 +15,8 @@ public class PlayerCombat : MonoBehaviour
     public SkillUser skillUser;
     public PlayerStats playerStats;
 
+    public UnityEventAlternatives.SkillEvent OnNotEnoughMana;
+
     private bool pressing = false;
 
     private void Update() {
@@ -45,6 +47,9 @@ public class PlayerCombat : MonoBehaviour
             if(playerStats.GetSkillCooldown(playerStats.selectedMagicSkill) <= 0
                 && skillUser.userStats.currentMana >= playerStats.selectedMagicSkill.skillCost){
                skillUser.InitializeSkill(playerStats.selectedMagicSkill);
+            }else if(playerStats.GetSkillCooldown(playerStats.selectedMagicSkill) <= 0
+                && skillUser.userStats.currentMana < playerStats.selectedMagicSkill.skillCost){
+                    OnNotEnoughMana?.Invoke(playerStats.selectedMagicSkill);
             }
         }
     }

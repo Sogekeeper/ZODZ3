@@ -16,6 +16,7 @@ public class BubbleDialogSequence : MonoBehaviour
     public bool isFromActor = false; //mostrar dialogo em cima do player
     public int targetMemberIndex = 0; //index do membro na conversa para a bolha aparecer em cima      
     public float timeToReadLine = 3; //tempo até linha acabar
+    public UnityEvent OnExecute;
   }
 
   public PoolObject bubbleObj;
@@ -99,6 +100,7 @@ public class BubbleDialogSequence : MonoBehaviour
 				SpawnBubbleOn(texts[currentDialogIndex].bubbleText,transform,texts[currentDialogIndex].timeToReadLine);
 			}
     }
+    texts[currentDialogIndex].OnExecute?.Invoke();
 
     currentDialogIndex++;
     if(currentDialogIndex == texts.Length){
@@ -111,11 +113,22 @@ public class BubbleDialogSequence : MonoBehaviour
 
 
 	private BubbleDialog SpawnBubbleOn(string dialogText,Transform target, float readTime){
-		BubbleDialog b = bubblePool.SpawnTargetObject(bubbleObj,3).GetComponent<BubbleDialog>();
+		BubbleDialog b = bubblePool.SpawnTargetObject(bubbleObj,3,transform).GetComponent<BubbleDialog>();
 		b.transform.position = target.transform.position + new Vector3(0,bubbleOffsetY,0);
 		b.InitBubble(dialogText,readTime);
     currentBubble = b;
     return b;
 	}
+
+  [ContextMenu("Debug - Print Dialog Time")]
+  public float GetTotalDialogTime(){
+    float total = 0;
+    for (int i = 0; i < texts.Length; i++)
+    {
+        total += texts[i].timeToReadLine;
+    }
+    Debug.Log(total);
+    return total;
+  }
 
 }
