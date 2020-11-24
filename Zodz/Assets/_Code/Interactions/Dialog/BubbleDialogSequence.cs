@@ -13,6 +13,7 @@ public class BubbleDialogSequence : MonoBehaviour
     //por enquanto só tem o texto, mas pode ter mais coisas depois
     [TextArea]
     public string bubbleText = "";
+    public string bubbleTitle = "";
     public bool isFromActor = false; //mostrar dialogo em cima do player
     public int targetMemberIndex = 0; //index do membro na conversa para a bolha aparecer em cima      
     public float timeToReadLine = 3; //tempo até linha acabar
@@ -95,9 +96,10 @@ public class BubbleDialogSequence : MonoBehaviour
     {
 			if(conversationMembers != null && conversationMembers.Length > texts[currentDialogIndex].targetMemberIndex
 				&& texts[currentDialogIndex].targetMemberIndex >= 0 && conversationMembers[texts[currentDialogIndex].targetMemberIndex]){
-				SpawnBubbleOn(texts[currentDialogIndex].bubbleText,conversationMembers[texts[currentDialogIndex].targetMemberIndex],texts[currentDialogIndex].timeToReadLine);
+				SpawnBubbleOn(texts[currentDialogIndex].bubbleText,conversationMembers[texts[currentDialogIndex].targetMemberIndex],
+          texts[currentDialogIndex].timeToReadLine,texts[currentDialogIndex].bubbleTitle);
 			}else{
-				SpawnBubbleOn(texts[currentDialogIndex].bubbleText,transform,texts[currentDialogIndex].timeToReadLine);
+				SpawnBubbleOn(texts[currentDialogIndex].bubbleText,transform,texts[currentDialogIndex].timeToReadLine,texts[currentDialogIndex].bubbleTitle);
 			}
     }
     texts[currentDialogIndex].OnExecute?.Invoke();
@@ -112,10 +114,10 @@ public class BubbleDialogSequence : MonoBehaviour
   }
 
 
-	private BubbleDialog SpawnBubbleOn(string dialogText,Transform target, float readTime){
+	private BubbleDialog SpawnBubbleOn(string dialogText,Transform target, float readTime, string title = ""){
 		BubbleDialog b = bubblePool.SpawnTargetObject(bubbleObj,3,transform).GetComponent<BubbleDialog>();
 		b.transform.position = target.transform.position + new Vector3(0,bubbleOffsetY,0);
-		b.InitBubble(dialogText,readTime);
+		b.InitBubble(dialogText,readTime,title);
     currentBubble = b;
     return b;
 	}

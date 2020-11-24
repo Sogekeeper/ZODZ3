@@ -23,7 +23,7 @@ public class PowerPickupPanel : MonoBehaviour
 
     public void UpdatePowerPickupPanel(){
         skillText.text = "<align=\"center\">Unlock\n<align=\"left\">"+pickup.raceToPickUp.magicSkill.skillName+": "+pickup.raceToPickUp.magicSkill.skillShortDescription;
-        augmentText.text = "<align=\"center\">Duplicate<align=\"left\">Select an upgrade for "+pickup.raceToPickUp.magicSkill.skillName;
+        augmentText.text = "<align=\"center\">Duplicate<align=\"left\">\nSelect an upgrade for "+pickup.raceToPickUp.magicSkill.skillName;
         bool playerHasRace = false;
         for (int i = 0; i < player.astralMapRaces.Length; i++)
         {

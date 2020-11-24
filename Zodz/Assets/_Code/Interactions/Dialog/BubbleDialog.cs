@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Hellmade.Sound;
 
 public class BubbleDialog : MonoBehaviour
 {
@@ -14,8 +15,13 @@ public class BubbleDialog : MonoBehaviour
 
 	[Header("Optional")]
 	public RectTransform textPanel; //quadrado ou imagem atrás do texto
+  public TextMeshProUGUI textTitle;
+  public RectTransform textTitlePanel;
 	public float spacingX = 50;
 	public float spacingY;
+  public float titleSpacingX = 5;
+  public float titleSpacingY = 5;
+  public AudioClip popSound;
   public Vector3 originalScale;
 
   private bool canMove;
@@ -49,18 +55,27 @@ public class BubbleDialog : MonoBehaviour
 		}
   }
 
-  public void InitBubble(string textToDisplay,float timeToRead)
+  public void InitBubble(string textToDisplay,float timeToRead,string title = "")
   {
     StopAllCoroutines();
     upSpeed = originalUpSpeed;
 		fadeTimer = timeTilFade + timeToRead;
 		canMove = false;
 		anim.Play("Idle",0,0);
+    if(popSound != null) EazySoundManager.PlayUISound(popSound,0.15f);
 		bubbleText.text = textToDisplay;
 		if(textPanel){
 			Vector2 textSize = bubbleText.GetPreferredValues() + new Vector2(spacingX,spacingY);
       textPanel.sizeDelta = textSize;
 		}
+    if(title == null || title.Length <= 1) textTitlePanel?.gameObject.SetActive(false);
+    else{
+      if(textTitle != null) textTitle.text = title;
+      if(textTitlePanel){
+        Vector2 titleSize = textTitle.GetPreferredValues() + new Vector2(titleSpacingX,titleSpacingY);
+        textTitlePanel.sizeDelta = titleSize;
+      }
+    }
 		timeStopped = timeToRead;
     StartCoroutine(waitToMove());
   }
