@@ -325,6 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201434575}
   - component: {fileID: 201434576}
+  - component: {fileID: 201434577}
   m_Layer: 10
   m_Name: Second Dialog
   m_TagString: Untagged
@@ -363,13 +364,21 @@ MonoBehaviour:
   bubblePool: {fileID: 600893283}
   texts:
   - bubbleText: "During your travels there might be \nsome hazards on the floor."
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: You can just dash past them.
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   conversationMembers: []
   bubbleOffsetY: 0.8
   repeatOnCall: 0
@@ -386,6 +395,33 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &201434577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201434574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30999049872fb8a42bd76ad43a2a372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e2394a0ed11a65b4b8dc2f6f886924a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 201434576}
+        m_MethodName: SkipLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1001 &254230002
 PrefabInstance:
@@ -1997,6 +2033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 514493448}
   - component: {fileID: 514493449}
+  - component: {fileID: 514493450}
   m_Layer: 10
   m_Name: Third Dialog
   m_TagString: Untagged
@@ -2035,13 +2072,21 @@ MonoBehaviour:
   bubblePool: {fileID: 600893283}
   texts:
   - bubbleText: Great.
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 2
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: You can also do that to dodge attacks and most hazards.
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   conversationMembers: []
   bubbleOffsetY: 0.8
   repeatOnCall: 0
@@ -2092,6 +2137,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &514493450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514493447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30999049872fb8a42bd76ad43a2a372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e2394a0ed11a65b4b8dc2f6f886924a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 514493449}
+        m_MethodName: SkipLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &600893282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2972492720182825008, guid: bbfb40b675ca0754a846fb34a8fb0053,
@@ -2132,6 +2204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 623024990}
   - component: {fileID: 623024991}
+  - component: {fileID: 623024992}
   m_Layer: 10
   m_Name: Fourth Dialog
   m_TagString: Untagged
@@ -2170,9 +2243,13 @@ MonoBehaviour:
   bubblePool: {fileID: 600893283}
   texts:
   - bubbleText: "Now, I assume you know some \nbasic fighting moves. Correct?"
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   conversationMembers: []
   bubbleOffsetY: 0.8
   repeatOnCall: 0
@@ -2200,6 +2277,33 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &623024992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623024989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30999049872fb8a42bd76ad43a2a372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e2394a0ed11a65b4b8dc2f6f886924a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 623024991}
+        m_MethodName: SkipLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &653394667
 GameObject:
@@ -2426,6 +2530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755662637}
   - component: {fileID: 755662636}
+  - component: {fileID: 755662638}
   m_Layer: 10
   m_Name: Sixth Dialog
   m_TagString: Untagged
@@ -2452,26 +2557,42 @@ MonoBehaviour:
   - bubbleText: 'If you want to, you may take that one as a gift,
 
       but beware...'
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: 'One can only benefit from the power
 
       of 8 signs at once.'
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: That is all. You can take your time testing.
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 2.49
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: 'Oh, and when you travel through the Barren Fields,
 
       trust
       no one.'
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   conversationMembers: []
   bubbleOffsetY: 0.8
   repeatOnCall: 0
@@ -2580,6 +2701,33 @@ Transform:
   m_Father: {fileID: 794229624}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755662638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755662635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30999049872fb8a42bd76ad43a2a372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e2394a0ed11a65b4b8dc2f6f886924a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 755662636}
+        m_MethodName: SkipLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &778687839
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,6 +7039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1009943934}
   - component: {fileID: 1009943935}
+  - component: {fileID: 1009943936}
   m_Layer: 10
   m_Name: FirstDialog
   m_TagString: Untagged
@@ -6929,18 +7078,30 @@ MonoBehaviour:
   bubblePool: {fileID: 600893283}
   texts:
   - bubbleText: Thank you for showing up today.
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: "The Barren Fields are getting dangerous \nand we don't want more
       casualties."
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: Now, follow me over there please.
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 2.47
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   conversationMembers: []
   bubbleOffsetY: 0.8
   repeatOnCall: 0
@@ -6990,6 +7151,33 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1009943936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009943933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30999049872fb8a42bd76ad43a2a372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e2394a0ed11a65b4b8dc2f6f886924a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1009943935}
+        m_MethodName: SkipLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1023655036
 GameObject:
@@ -7734,7 +7922,7 @@ PrefabInstance:
     - target: {fileID: 1301346902030411690, guid: c56a23e3579656342bde28423976b378,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.1806946
+      value: 4.1806965
       objectReference: {fileID: 0}
     - target: {fileID: 1301346902372061265, guid: c56a23e3579656342bde28423976b378,
         type: 3}
@@ -8577,6 +8765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1602331483}
   - component: {fileID: 1602331484}
+  - component: {fileID: 1602331485}
   m_Layer: 10
   m_Name: Fifth Dialog
   m_TagString: Untagged
@@ -8615,20 +8804,32 @@ MonoBehaviour:
   bubblePool: {fileID: 600893283}
   texts:
   - bubbleText: Good. But not enough to survive out there.
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: "You can reach to all the Nova within \nyourself to use special abilities."
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   - bubbleText: 'And you can also get the knowledge to use new
 
       abilities by
       absorbing the power of the Signs.'
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   conversationMembers: []
   bubbleOffsetY: 0.8
   repeatOnCall: 0
@@ -8656,6 +8857,33 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1602331485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602331482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30999049872fb8a42bd76ad43a2a372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e2394a0ed11a65b4b8dc2f6f886924a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1602331484}
+        m_MethodName: SkipLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1607891955
 GameObject:

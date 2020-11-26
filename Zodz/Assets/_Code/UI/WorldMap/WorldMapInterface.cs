@@ -83,7 +83,7 @@ public class WorldMapInterface : MonoBehaviour
         globalMapSettings.endRoomSet = selectedLocation.roomSet;
         globalMapSettings.endEnemySet = selectedLocation.enemySet;
         globalMapSettings.numberOfRooms = selectedPathway.distance;
-        globalMapSettings.mapDifficulty = MapSettings.MapDifficulty.EASY;
+        globalMapSettings.totalEntitiesCost = (int)Mathf.Ceil(selectedPathway.difficulty*40);
         Time.timeScale = 1;
         worldObject.SetPathway(selectedPathway);
         if(teleport){

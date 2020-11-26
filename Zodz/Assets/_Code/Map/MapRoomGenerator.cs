@@ -84,8 +84,7 @@ public class MapRoomGenerator : MonoBehaviour
             if(randomPointer == null)
                 break; //sair do for por falta de pontos
             
-            MapEntity targetEntity = targetSet.GetRandomEntity(globalMapSettings.mapDifficulty,
-                randomPointer.pointSize,costForEnemies);
+            MapEntity targetEntity = targetSet.GetRandomEntity(randomPointer.pointSize,costForEnemies, globalMapSettings.totalEntitiesCost);
             if(targetEntity != null){
                 costForEnemies -= targetEntity.entityCost;
                 MapEntity spawnedEntity = Instantiate<MapEntity>(targetEntity,

@@ -8,8 +8,13 @@ public class MissionChecker : MonoBehaviour
     public Mission missionToCheck;
     public bool checkForActive;
     public bool checkForCompleted;
+    public bool checkOnStart;
     public UnityEvent OnValidResult;
     public UnityEvent OnInvalidResult;
+
+    private void Start() {
+        if(checkOnStart) CheckMission();
+    }
 
     public void CheckMission(){
         if(checkForActive && missionToCheck.isActive){

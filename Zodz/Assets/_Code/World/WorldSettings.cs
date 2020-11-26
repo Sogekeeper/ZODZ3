@@ -65,13 +65,13 @@ public class WorldSettings : ScriptableObject
                 if(GetPathway(locations[i],locations[i].neighbors[y]) != null) continue;
 
                 float diffValue = Random.Range(1,maxDifficultyFactor);
-                float diffSecondaryFactor = Random.Range(0,4);
-                diffSecondaryFactor = (origin.distanceFactor - locations[i].neighbors[y].distanceFactor) < maxDistanceFactor/2 ? 
+                float diffSecondaryFactor = Random.Range(0,maxDifficultyFactor*0.7f);
+                diffSecondaryFactor = Mathf.Abs(origin.distanceFactor - locations[i].neighbors[y].distanceFactor) > (float)maxDistanceFactor/2.00f ? 
                     diffSecondaryFactor : diffSecondaryFactor * -1;
                 diffValue = Mathf.Clamp(diffValue+diffSecondaryFactor,1,maxDifficultyFactor);
                 int roomValue = Random.Range(minRoomAmount,maxRoomAmount);
-                int secondaryRoomValue = Random.Range(0,maxRoomAmount/3);
-                secondaryRoomValue = (origin.distanceFactor - locations[i].neighbors[y].distanceFactor) < maxDistanceFactor/2 ? 
+                int secondaryRoomValue = (int)Random.Range(1,(float)maxRoomAmount/3.00f);
+                secondaryRoomValue = Mathf.Abs(origin.distanceFactor - locations[i].neighbors[y].distanceFactor) > (float)maxDistanceFactor/2.00f ?
                     secondaryRoomValue : secondaryRoomValue * -1;
                 roomValue = Mathf.Clamp(roomValue+secondaryRoomValue,minRoomAmount,maxRoomAmount);
                 pathways.Add(new Pathway(locations[i],locations[i].neighbors[y],roomValue,diffValue));
@@ -88,6 +88,11 @@ public class WorldSettings : ScriptableObject
             }
         }
         return null;
+    }
+
+    [ContextMenu("DEBUG - Init World Object")]
+    public void DebugInitWorld(){
+        if(origin != null) InitializeWorld(origin);
     }
 
 }
