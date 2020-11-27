@@ -92,6 +92,13 @@ public class PlayerMovement : MonoBehaviour
       return false;
   }
 
+  public void SetMoveAnimParamX(float amount){
+    moveAnimOutput.SetFloat("horizontal",Mathf.Clamp01(amount));
+  }
+  public void SetMoveAnimParamY(float amount){
+    moveAnimOutput.SetFloat("vertical",Mathf.Clamp01(amount));
+  }
+
   private void UpdateMovementAnimator(){
     if(!skillUser.userStats.canMove){
       moveAnimOutput.SetFloat("speed",0);

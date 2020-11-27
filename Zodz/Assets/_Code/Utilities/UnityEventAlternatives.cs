@@ -25,4 +25,9 @@ public class UnityEventAlternatives
     public class EntityEvent : UnityEvent<EntityStats>
     {
     }
+
+    [System.Serializable]
+    public class LocationEvent : UnityEvent<Location>
+    {
+    }
 }

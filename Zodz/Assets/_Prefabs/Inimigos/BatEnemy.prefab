@@ -520,8 +520,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRace: {fileID: 0}
-  baseLife: 70
-  baseMana: 20
   baseStrength: 5
   baseMind: 5
   baseConstitution: 5
@@ -606,6 +604,7 @@ MonoBehaviour:
   knockbackImmune: 0
   stunned: 0
   airBorne: 0
+  startWithMana: 0
   states: []
 --- !u!114 &1383530408625454080
 MonoBehaviour:
@@ -738,7 +737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entitySize: 1
-  entityCost: 4
+  entityCost: 15
+  minimumTotalCost: 0
 --- !u!1 &5508595665691782817
 GameObject:
   m_ObjectHideFlags: 0

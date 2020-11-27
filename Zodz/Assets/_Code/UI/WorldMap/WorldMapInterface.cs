@@ -10,9 +10,13 @@ public class WorldMapInterface : MonoBehaviour
     public WorldSettings worldObject;
     public MapSettings globalMapSettings;
     public StringVariable roomSceneString;
+    public StringVariable roguestarsSceneString;
     public Button travelButton;
+    public Button roguestarsButton;
+    public QuestArc roguestarsRequirement;
     public GameObject infoPanel;
     public Transform currentLocationIndicator;
+    public WorldMapItem[] itens;
     [Header("Info Panel Details")]
     public Text locationNameText;
     public Text locationDescriptionText;
@@ -25,7 +29,7 @@ public class WorldMapInterface : MonoBehaviour
     public GameObject pathwayInfoContent;
 
     public static bool isOpen = false;
-    private Location selectedLocation;
+    public static Location selectedLocation {get; private set;}
     private WorldSettings.Pathway selectedPathway;
 
     //cheats
@@ -64,6 +68,11 @@ public class WorldMapInterface : MonoBehaviour
         isOpen = true;
         Time.timeScale = 0;
         travelButton.gameObject.SetActive(activeTravelButton);
+        if(activeTravelButton && roguestarsRequirement.completed){
+            roguestarsButton.gameObject.SetActive(true);
+        }else{
+            roguestarsButton.gameObject.SetActive(false);
+        }
         SelectLocation(null);
     }
 
@@ -94,6 +103,10 @@ public class WorldMapInterface : MonoBehaviour
     }
 
     public void SelectLocation(Location target){
+        for (int i = 0; i < itens.Length; i++)
+        {
+            itens[i].SelectionWasUpdated(target);            
+        }
         if(target == null){
             selectedLocation = null;
             travelButton.interactable = false;
@@ -134,7 +147,11 @@ public class WorldMapInterface : MonoBehaviour
             youreHereContent.SetActive(true);
             youreHereText.text = "????";
             return;
-        }
+        }        
+    }
+
+    public void TravelToRogueStars(){
+
     }
 
     [ContextMenu("DEBUG - Init World Object")]

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4182322229288518327}
   - component: {fileID: 966146415675697944}
   m_Layer: 13
-  m_Name: SimpleDialog (1)
+  m_Name: SimpleDialogRace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,10 +108,17 @@ MonoBehaviour:
   bubblePool: {fileID: 0}
   raceDialogAsset: {fileID: 11400000, guid: 2423cb38d204ff342aab96bd0f7eb588, type: 2}
   defaultActor: {fileID: 0}
+  racesForEvent: []
   conversationMembers: []
   bubbleOffsetY: 0.7
-  repeatOnCall: 0
+  repeatOnCall: 1
   OnDialogEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnValidRace:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInvalidRace:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &4182322230680983509
@@ -228,7 +235,7 @@ PrefabInstance:
     - target: {fileID: 5646833370519937247, guid: 50f2c2965f3c16c468822586eb85b85b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.1873
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5646833370519937247, guid: 50f2c2965f3c16c468822586eb85b85b,
         type: 3}

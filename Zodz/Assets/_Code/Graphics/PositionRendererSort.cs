@@ -23,10 +23,16 @@ public class PositionRendererSort : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0){
             timer = timerMax;
-            myRenderer.sortingOrder = (int)(sortingOrderBase-transform.position.y - offset);
+            ChangeSortOrder();
             if(runOnlyOnce){
                 Destroy(this);
             }
         }
+    }
+
+    [ContextMenu("Change Sort Order")]
+    public void ChangeSortOrder(){
+        if(myRenderer == null)myRenderer = gameObject.GetComponent<Renderer>();
+        myRenderer.sortingOrder = (int)(sortingOrderBase-transform.position.y - offset);
     }
 }

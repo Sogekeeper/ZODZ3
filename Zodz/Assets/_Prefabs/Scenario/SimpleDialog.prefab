@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3991006083772295596}
   - component: {fileID: 3991006083772295587}
   - component: {fileID: 3991006083772295586}
+  - component: {fileID: 5507734555620851268}
   m_Layer: 13
   m_Name: SimpleDialog
   m_TagString: Untagged
@@ -80,11 +81,15 @@ MonoBehaviour:
 
       only during worshiping
       season.'
+    bubbleTitle: 
     isFromActor: 0
     targetMemberIndex: 0
     timeToReadLine: 4
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
   conversationMembers: []
-  bubbleOffsetY: 1.53
+  bubbleOffsetY: 0.8
   repeatOnCall: 1
   OnDialogEnd:
     m_PersistentCalls:
@@ -120,6 +125,33 @@ MonoBehaviour:
   showPopUpOnlyOnce: 0
   canInteract: 1
   actor: {fileID: 0}
+--- !u!114 &5507734555620851268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991006083772295598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30999049872fb8a42bd76ad43a2a372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e2394a0ed11a65b4b8dc2f6f886924a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3991006083772295587}
+        m_MethodName: SkipLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3991006083453320384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 5646833370519937247, guid: 50f2c2965f3c16c468822586eb85b85b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5646833370519937247, guid: 50f2c2965f3c16c468822586eb85b85b,
         type: 3}

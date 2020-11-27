@@ -11,6 +11,7 @@ public class RaceDependingDialog : ScriptableObject
         public BubbleDialogSequence.LineInfo[] lines;
     }
 
+    public BubbleDialogSequence.LineInfo[] defaultLines;
     public RaceDialog[] possibleDialogs;
 
     public BubbleDialogSequence.LineInfo[] GetRaceLines(Race race){
@@ -22,6 +23,6 @@ public class RaceDependingDialog : ScriptableObject
                 }
             }
         }
-        return null;
+        return defaultLines;
     }
 }
