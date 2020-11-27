@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d098d08697f42445a4f6be11e12ee67, type: 3}
-  m_Name: Sagitarius Warriors to Leo
+  m_Name: Lion to Lion on the Sagittarius City
   m_EditorClassIdentifier: 
   defaultLines:
-  - bubbleText: 'We Sagittarians worship war and fire...
+  - bubbleText: 'Me and my father never liked
+
+      to live in Leo''s village.
 
 '
     bubbleTitle: 
@@ -23,15 +25,36 @@ MonoBehaviour:
     OnExecute:
       m_PersistentCalls:
         m_Calls: []
-  - bubbleText: 'That''s why we have good relations
-
-      with the races that have
-      great warriors
+  - bubbleText: 'We moved to Virgo City a long time ago.
 
 '
     bubbleTitle: 
     isFromActor: 0
-    targetMemberIndex: 1
+    targetMemberIndex: 0
+    timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
+  - bubbleText: 'But now I live here
+
+      and my father stayed in Virgo City.
+
+
+'
+    bubbleTitle: 
+    isFromActor: 0
+    targetMemberIndex: 0
+    timeToReadLine: 3
+    OnExecute:
+      m_PersistentCalls:
+        m_Calls: []
+  - bubbleText: 'Say hi to him for me if you see him.
+
+
+'
+    bubbleTitle: 
+    isFromActor: 0
+    targetMemberIndex: 0
     timeToReadLine: 3
     OnExecute:
       m_PersistentCalls:
@@ -40,7 +63,7 @@ MonoBehaviour:
   - targetRaces:
     - {fileID: 11400000, guid: 28ec612fb13bf0d44a756836a6270632, type: 2}
     lines:
-    - bubbleText: A lion!!
+    - bubbleText: Oh, it's nice to see another lion in this city!
       bubbleTitle: 
       isFromActor: 0
       targetMemberIndex: 0
@@ -48,29 +71,38 @@ MonoBehaviour:
       OnExecute:
         m_PersistentCalls:
           m_Calls: []
-    - bubbleText: "Your people are known for being \na tribe of great warriors"
-      bubbleTitle: 
-      isFromActor: 0
-      targetMemberIndex: 0
-      timeToReadLine: 3
-      OnExecute:
-        m_PersistentCalls:
-          m_Calls: []
-    - bubbleText: 'One of these days you need to
+    - bubbleText: 'Me and my father never liked
 
-        practice some techniques
-        with us!'
+        to live in Leo''s village.'
       bubbleTitle: 
       isFromActor: 0
-      targetMemberIndex: 1
+      targetMemberIndex: 0
       timeToReadLine: 3
       OnExecute:
         m_PersistentCalls:
           m_Calls: []
-    - bubbleText: HAHAHAHA!
+    - bubbleText: We moved to Virgo City a long time ago.
       bubbleTitle: 
       isFromActor: 0
-      targetMemberIndex: 1
+      targetMemberIndex: 0
+      timeToReadLine: 3
+      OnExecute:
+        m_PersistentCalls:
+          m_Calls: []
+    - bubbleText: 'But now I live here
+
+        and my father stayed in Virgo City.'
+      bubbleTitle: 
+      isFromActor: 0
+      targetMemberIndex: 0
+      timeToReadLine: 3
+      OnExecute:
+        m_PersistentCalls:
+          m_Calls: []
+    - bubbleText: Say hi to him for me if you see him.
+      bubbleTitle: 
+      isFromActor: 0
+      targetMemberIndex: 0
       timeToReadLine: 3
       OnExecute:
         m_PersistentCalls:
